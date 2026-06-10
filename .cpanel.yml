@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    # GANTI "USERNAME" dengan username cPanel kamu (lihat pojok kanan atas cPanel)
+    - export DEPLOYPATH=/home/USERNAME/public_html
+    - /bin/cp -f index.html $DEPLOYPATH/
+    - /bin/cp -Rf css $DEPLOYPATH/
+    - /bin/cp -Rf js $DEPLOYPATH/
+    - /bin/cp -Rf assets $DEPLOYPATH/
