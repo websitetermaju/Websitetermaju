@@ -30,7 +30,7 @@ Edit langsung di HTML, tidak perlu sentuh file lain.
 5. Jika autentikasi gagal:
    - Di cPanel, ambil SSH public key
    - Masuk ke GitHub repo → **Settings** → **Deploy keys** → **Add Deploy Key**
-   - Paste SSH key, centang "Allow write access" jika perlu
+   - Paste SSH key. JANGAN centang "Allow write access" — untuk deploy cukup akses baca (read-only)
 6. Setelah berhasil clone, edit file `.cpanel.yml` di root repo:
    - Ganti `USERNAME` dengan username cPanel kamu (lihat pojok kanan atas)
 7. Push perubahan ke GitHub
@@ -55,4 +55,4 @@ Edit langsung di HTML, tidak perlu sentuh file lain.
 └── .cpanel.yml         (konfigurasi deploy cPanel)
 ```
 
-Pertanyaan? Hubungi developer atau baca dokumentasi di folder `docs/`.
+Pertanyaan? Hubungi developer.
