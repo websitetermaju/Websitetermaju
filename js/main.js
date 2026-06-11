@@ -2,6 +2,7 @@
 const WA_NUMBER = "628159203331";
 const WA_DEFAULT_MSG = "Halo, saya mau tanya soal jasa pembuatan website.";
 // ===========================================
+// Catatan: nomor juga ada di link fallback index.html — cari & ganti "628159203331" di sana juga.
 
 document.querySelectorAll("[data-wa]").forEach((el) => {
   const msg = el.dataset.waMsg || WA_DEFAULT_MSG;

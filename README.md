@@ -9,6 +9,7 @@ Untuk mengganti nomor WhatsApp atau pesan default:
 2. Cari konstanta `WA_NUMBER` dan `WA_DEFAULT_MSG`
 3. Edit nilai sesuai keinginan
 4. Semua tombol website otomatis menggunakan nomor & pesan baru (satu tempat, semua ikut berubah)
+5. Setelah itu, buka `index.html` dan cari-ganti juga nomor `628159203331` di sana (link fallback tombol & footer), supaya tetap konsisten kalau JavaScript tidak aktif.
 
 ## Mengubah Paket, Portfolio & Testimoni
 

@@ -41,6 +41,8 @@ a { color: var(--accent); }
 
 img { max-width: 100%; height: auto; display: block; }
 
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
 /* ---------- Buttons: sticker-like, solid offset shadow ---------- */
 
 .btn {
@@ -438,7 +440,7 @@ img { max-width: 100%; height: auto; display: block; }
   display: grid;
   place-items: center;
   background: var(--wa);
-  color: #fff;
+  color: #07331a;
   border: 2px solid var(--ink);
   border-radius: 50%;
   box-shadow: 3px 3px 0 rgba(0, 0, 0, .4);
@@ -452,8 +454,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Scroll reveal ---------- */
 
-.reveal { opacity: 0; transform: translateY(24px); transition: all .6s ease; }
-.reveal.shown { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(24px); transition: all .6s ease; }
+.js .reveal.shown { opacity: 1; transform: none; }
 
 /* staggered cards inside grids (delay still applies after .shown) */
 .steps .reveal:nth-child(2), .works .reveal:nth-child(2),
@@ -472,15 +474,6 @@ img { max-width: 100%; height: auto; display: block; }
 .plan-featured.reveal { transform: translateY(24px) scale(1.05); }
 .plan-featured.reveal.shown { transform: scale(1.05); }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal { transition: none; opacity: 1; transform: none; }
-  html { scroll-behavior: auto; }
-  .btn, .work-card, .wa-float { transition: none; }
-  .work-card.reveal:nth-child(odd) { transform: rotate(-1.5deg); }
-  .work-card.reveal:nth-child(even) { transform: rotate(1.5deg); }
-  .plan-featured.reveal { transform: scale(1.05); }
-}
-
 /* ---------- Responsive ---------- */
 
 @media (max-width: 1020px) {
@@ -497,4 +490,13 @@ img { max-width: 100%; height: auto; display: block; }
   .plan-featured { transform: none; }
   .plan-featured.reveal { transform: translateY(24px); }
   .plan-featured.reveal.shown { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal, .js .reveal * { transition: none; opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+  .btn, .work-card, .wa-float { transition: none; }
+  .work-card.reveal:nth-child(odd) { transform: rotate(-1.5deg); }
+  .work-card.reveal:nth-child(even) { transform: rotate(1.5deg); }
+  .plan-featured.reveal { transform: scale(1.05); }
 }
