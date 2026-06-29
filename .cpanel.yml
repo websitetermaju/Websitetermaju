@@ -1,7 +1,4 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/webterma/public_html
-    - /bin/cp -Rf dist/* $DEPLOYPATH/
-    - /bin/cp -Rf dist/_astro $DEPLOYPATH/
-    - /bin/cp -Rf dist/portfolio $DEPLOYPATH/
+    - /bin/cp -Rf dist/* /home/webterma/public_html/ && /bin/cp -Rf dist/_astro /home/webterma/public_html/ && /bin/cp -Rf dist/portfolio /home/webterma/public_html/
