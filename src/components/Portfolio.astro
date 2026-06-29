@@ -1,0 +1,43 @@
+---
+const projects = [
+  { title: "Kopi Senja", category: "Landing Page", color: "from-amber-400 to-orange-500" },
+  { title: "Bengkel Mas Yono", category: "Company Profile", color: "from-blue-400 to-indigo-500" },
+  { title: "Batik Larasati", category: "Toko Online", color: "from-rose-400 to-pink-500" },
+  { title: "Katering Bu Rina", category: "Landing Page", color: "from-emerald-400 to-teal-500" },
+  { title: "Studio Kreatif", category: "Company Profile", color: "from-violet-400 to-purple-500" },
+  { title: "Apotek Sehat", category: "Custom Web App", color: "from-cyan-400 to-blue-500" },
+];
+---
+
+<section id="portfolio" class="py-20 sm:py-24 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="reveal inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-3">Portfolio</span>
+      <h2 class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight">
+        Beberapa karya kami
+      </h2>
+      <p class="reveal text-muted mt-4 max-w-2xl mx-auto text-lg">
+        Setiap proyek dikerjakan dengan perhatian penuh pada detail dan kebutuhan klien.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((p, i) => (
+        <div class="reveal group cursor-pointer" style={`transition-delay: ${(i % 3) * 100}ms`}>
+          <div class="relative overflow-hidden rounded-xl border border-gray-100 bg-white">
+            <div class={`aspect-[16/10] bg-gradient-to-br ${p.color} flex items-center justify-center`}>
+              <div class="text-white/90 text-center">
+                <svg class="w-12 h-12 mx-auto mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <span class="text-sm font-medium opacity-70">Preview</span>
+              </div>
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-medium text-primary bg-primary/10 px-2.5 py-1 rounded-full">{p.category}</span>
+              <h3 class="text-base font-bold mt-3 group-hover:text-primary transition-colors">{p.title}</h3>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

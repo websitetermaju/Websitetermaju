@@ -1,0 +1,55 @@
+---
+const testimonials = [
+  {
+    quote: "Awalnya saya gaptek banget, takut ribet. Ternyata cuma modal chat WA, dua minggu kemudian katering saya sudah punya website sendiri. Pesanan masuk lebih rapi sekarang.",
+    name: "Bu Rina",
+    role: "Katering Rumahan",
+    initials: "BR",
+  },
+  {
+    quote: "Pelanggan baru sering bilang nemu bengkel saya dari Google. Padahal dulu cuma andalkan orang lewat. Worth it banget sih.",
+    name: "Mas Dimas",
+    role: "Bengkel Motor",
+    initials: "MD",
+  },
+  {
+    quote: "Revisinya sabar banget, saya ganti foto produk berkali-kali nggak pernah diomelin. Hasilnya bagus, teman-teman sesama penjual sampai nanya dibikinin siapa.",
+    name: "Mbak Ayu",
+    role: "Butik Online",
+    initials: "MA",
+  },
+];
+---
+
+<section class="py-20 sm:py-24 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="reveal inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-3">Testimoni</span>
+      <h2 class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight">
+        Kata mereka yang sudah duluan
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {testimonials.map((t, i) => (
+        <div class="reveal bg-white rounded-xl p-8 border border-gray-100 hover:shadow-lg transition-shadow duration-300" style={`transition-delay: ${i * 100}ms`}>
+          <div class="flex gap-1 mb-5">
+            {[...Array(5)].map(() => (
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            ))}
+          </div>
+          <blockquote class="text-sm text-muted leading-relaxed mb-6">"{t.quote}"</blockquote>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary/10 text-primary font-bold text-sm flex items-center justify-center">
+              {t.initials}
+            </div>
+            <div>
+              <div class="font-semibold text-sm">{t.name}</div>
+              <div class="text-xs text-muted">{t.role}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

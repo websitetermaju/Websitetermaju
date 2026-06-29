@@ -1,0 +1,53 @@
+---
+const faqs = [
+  {
+    q: "Saya gaptek, apa bisa bikin website?",
+    a: "Tentu bisa! Kamu cukup ceritakan bisnis dan kebutuhan kamu lewat WhatsApp. Kami yang handle semuanya dari desain sampai website tayang. Kamu tinggal terima jadi.",
+  },
+  {
+    q: "Berapa lama proses pembuatannya?",
+    a: "Tergantung paket yang dipilih. Landing Page sekitar 5 hari kerja, Company Profile 7 hari, dan Toko Online sekitar 14 hari. Bisa lebih cepat kalau konten sudah siap.",
+  },
+  {
+    q: "Apakah bisa revisi?",
+    a: "Bisa! Setiap paket include revisi sampai kamu puas. Kami ingin hasilnya benar-benar sesuai keinginan kamu.",
+  },
+  {
+    q: "Apakah sudah termasuk domain dan hosting?",
+    a: "Sudah. Paket Landing Page include domain .my.id gratis 1 tahun, sedangkan paket Bisnis dan Toko Online include domain .com gratis 1 tahun beserta hosting.",
+  },
+  {
+    q: "Bagaimana kalau website sudah jadi, siapa yang maintenance?",
+    a: "Kami memberikan support gratis selama 30 hari setelah launch. Setelah itu, ada paket maintenance bulanan mulai dari Rp 100rb/bulan jika kamu butuh.",
+  },
+  {
+    q: "Bisa bayar dengan cara apa saja?",
+    a: "Kami menerima transfer bank (BCA, BRI, Mandiri, dll), e-wallet (GoPay, OVO, Dana), dan QRIS. Pembayaran bisa dicicil 2x untuk paket di atas Rp 1 juta.",
+  },
+];
+---
+
+<section id="faq" class="py-20 sm:py-24 px-4 bg-light">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="reveal inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-3">FAQ</span>
+      <h2 class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight">
+        Pertanyaan yang sering ditanyakan
+      </h2>
+    </div>
+
+    <div class="space-y-3">
+      {faqs.map((faq, i) => (
+        <details class="reveal group bg-white rounded-xl border border-gray-100 overflow-hidden" style={`transition-delay: ${i * 50}ms`}>
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer text-base font-semibold hover:text-primary transition-colors list-none [&::-webkit-details-marker]:hidden">
+            {faq.q}
+            <svg class="w-5 h-5 text-muted flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-muted leading-relaxed">
+            {faq.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

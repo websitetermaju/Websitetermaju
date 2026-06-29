@@ -1,59 +1,77 @@
 # Websitetermaju
 
-Landing page statis untuk **jasa pembuatan website**. Semua tombol CTA mengarah ke WhatsApp.
+Website profesional untuk jasa pembuatan website. Dibangun dengan **Astro** + **Tailwind CSS v4**.
 
-## Mengubah Nomor WhatsApp & Pesan
+## Development
 
-Untuk mengganti nomor WhatsApp atau pesan default:
-1. Buka file `js/main.js`
-2. Cari konstanta `WA_NUMBER` dan `WA_DEFAULT_MSG`
-3. Edit nilai sesuai keinginan
-4. Semua tombol website otomatis menggunakan nomor & pesan baru (satu tempat, semua ikut berubah)
-5. Setelah itu, buka `index.html` dan cari-ganti juga nomor `628159203331` di sana (link fallback tombol & footer), supaya tetap konsisten kalau JavaScript tidak aktif.
-
-## Mengubah Paket, Portfolio & Testimoni
-
-Buka file `index.html` dan cari komentar `<!-- EDIT: ... -->` untuk:
-- Harga paket layanan
-- Portfolio/contoh proyek
-- Testimoni klien
-
-Edit langsung di HTML, tidak perlu sentuh file lain.
+```sh
+npm install
+npm run dev        # Dev server di localhost:4321
+npm run build      # Build ke ./dist/
+npm run preview    # Preview build lokal
+```
 
 ## Deploy via cPanel Git Version Control
+
+### Penting: Build Dulu Sebelum Push
+
+cPanel tidak bisa menjalankan `npm run build`. Folder `dist/` harus di-commit ke repo.
+
+**Alur kerja setiap kali ada perubahan:**
+
+1. Edit file di `src/`
+2. Jalankan `npm run build`
+3. Commit semua perubahan (termasuk `dist/`)
+4. Push ke GitHub
+5. Di cPanel → Git Version Control → Pull or Deploy → Update from Remote → Deploy HEAD Commit
 
 ### Setup Pertama Kali
 
 1. Login ke cPanel
-2. Buka **Git Version Control** (atau cari di search)
+2. Buka **Git Version Control**
 3. Klik **Create**
 4. Masukkan URL repo: `git@github.com:websitetermaju/Websitetermaju.git`
 5. Jika autentikasi gagal:
    - Di cPanel, ambil SSH public key
    - Masuk ke GitHub repo → **Settings** → **Deploy keys** → **Add Deploy Key**
-   - Paste SSH key. JANGAN centang "Allow write access" — untuk deploy cukup akses baca (read-only)
-6. Setelah berhasil clone, edit file `.cpanel.yml` di root repo:
-   - Ganti `USERNAME` dengan username cPanel kamu (lihat pojok kanan atas)
-7. Push perubahan ke GitHub
+   - Paste SSH key. **JANGAN** centang "Allow write access"
+6. Edit file `.cpanel.yml` — ganti `USERNAME` dengan username cPanel kamu
+7. Push dan deploy
 
-### Update Rutin
+### Konfigurasi Deploy
 
-1. Edit file lokal / GitHub
-2. Push ke GitHub
-3. Login ke cPanel → **Git Version Control**
-4. Klik repo Websitetermaju
-5. Klik **Pull or Deploy** → **"Update from Remote"** → **"Deploy HEAD Commit"**
-6. Deploy selesai!
+File `.cpanel.yml` mengatur file apa yang dicopy ke `public_html`:
 
-## Struktur File
-
-```
-/
-├── index.html          (halaman utama)
-├── css/                (stylesheet)
-├── js/                 (JavaScript, termasuk main.js)
-├── assets/             (gambar, icon, dll)
-└── .cpanel.yml         (konfigurasi deploy cPanel)
+```yaml
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/USERNAME/public_html
+    - /bin/cp -Rf dist/* $DEPLOYPATH/
+    - /bin/cp -Rf dist/_astro $DEPLOYPATH/
 ```
 
-Pertanyaan? Hubungi developer.
+## Struktur Proyek
+
+```
+├── src/
+│   ├── components/      # Komponen Astro (Navbar, Hero, dll)
+│   ├── layouts/         # Layout utama
+│   ├── pages/           # Halaman (index.astro)
+│   └── styles/          # Global CSS + Tailwind config
+├── public/              # Asset statis (favicon, gambar)
+├── dist/                # Build output (di-commit untuk cPanel)
+├── astro.config.mjs     # Konfigurasi Astro
+├── .cpanel.yml          # Konfigurasi deploy cPanel
+└── package.json
+```
+
+## Mengubah Konten
+
+- **Harga**: Edit `src/components/Pricing.astro`
+- **Portfolio**: Edit `src/components/Portfolio.astro`
+- **Testimoni**: Edit `src/components/Testimonials.astro`
+- **FAQ**: Edit `src/components/FAQ.astro`
+- **Nomor WA**: Cari & ganti `628159203331` di semua komponen
+
+Setelah edit, jangan lupa `npm run build` dan commit `dist/`.

@@ -1,0 +1,60 @@
+---
+const services = [
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+    title: "Landing Page",
+    desc: "Satu halaman yang fokus mengonversi pengunjung jadi pelanggan. Cocok untuk promosi produk, jasa, atau event.",
+    features: ["Desain custom", "Mobile responsive", "Tombol WhatsApp", "SEO dasar"],
+  },
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>`,
+    title: "Company Profile",
+    desc: "Website multi-halaman yang menampilkan profil bisnis secara profesional. Bangun kepercayaan calon klien.",
+    features: ["Sampai 5 halaman", "Email bisnis", "Google Maps", "Form kontak"],
+  },
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>`,
+    title: "Toko Online",
+    desc: "Katalog produk lengkap dengan keranjang belanja dan checkout via WhatsApp. Mulai jualan online dengan mudah.",
+    features: ["Katalog produk", "Keranjang belanja", "Checkout WA", "Filter & pencarian"],
+  },
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>`,
+    title: "Custom Web App",
+    desc: "Butuh fitur khusus? Kami bisa bikin sistem booking, dashboard, membership, atau apapun yang bisnis kamu butuhkan.",
+    features: ["Fitur sesuai kebutuhan", "Database & admin panel", "API integration", "Maintenance support"],
+  },
+];
+---
+
+<section id="layanan" class="py-20 sm:py-24 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="reveal inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-3">Layanan</span>
+      <h2 class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight">
+        Solusi untuk setiap kebutuhan
+      </h2>
+      <p class="reveal text-muted mt-4 max-w-2xl mx-auto text-lg">
+        Dari landing page sederhana sampai web app custom — kami punya paket yang pas untuk bisnis kamu.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {services.map((s) => (
+        <div class="reveal group bg-white rounded-xl p-8 border border-gray-100 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+          <div class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors" set:html={s.icon} />
+          <h3 class="text-xl font-bold mb-3">{s.title}</h3>
+          <p class="text-muted text-sm leading-relaxed mb-5">{s.desc}</p>
+          <ul class="space-y-2">
+            {s.features.map((f) => (
+              <li class="flex items-center gap-2 text-sm text-muted">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

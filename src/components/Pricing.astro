@@ -1,0 +1,110 @@
+---
+const plans = [
+  {
+    name: "Landing Page",
+    price: "750",
+    unit: "rb",
+    desc: "Cocok untuk promosi produk atau jasa",
+    features: [
+      "1 halaman responsif",
+      "Desain custom modern",
+      "Tombol WhatsApp",
+      "Gratis domain .my.id 1 tahun",
+      "SEO dasar",
+      "Jadi ±5 hari kerja",
+    ],
+    featured: false,
+    waMsg: "Halo, saya tertarik Paket Landing Page. Boleh tanya-tanya dulu?",
+  },
+  {
+    name: "Bisnis",
+    price: "1,5",
+    unit: "jt",
+    desc: "Paling populer untuk UMKM & bisnis kecil",
+    badge: "Paling Laris",
+    features: [
+      "Sampai 5 halaman",
+      "Desain custom premium",
+      "Email bisnis",
+      "Gratis domain .com 1 tahun",
+      "SEO lengkap",
+      "Google Analytics",
+      "Jadi ±7 hari kerja",
+    ],
+    featured: true,
+    waMsg: "Halo, saya tertarik Paket Bisnis. Boleh tanya-tanya dulu?",
+  },
+  {
+    name: "Toko Online",
+    price: "3,5",
+    unit: "jt",
+    desc: "Untuk jualan online dengan katalog produk",
+    features: [
+      "Katalog produk unlimited",
+      "Keranjang + checkout WA",
+      "Filter & pencarian",
+      "Semua fitur Bisnis",
+      "Admin panel produk",
+      "Jadi ±14 hari kerja",
+    ],
+    featured: false,
+    waMsg: "Halo, saya tertarik Paket Toko Online. Boleh tanya-tanya dulu?",
+  },
+];
+---
+
+<section id="harga" class="py-20 sm:py-24 px-4 bg-light">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="reveal inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-3">Harga</span>
+      <h2 class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight">
+        Pilih paket yang pas
+      </h2>
+      <p class="reveal text-muted mt-4 max-w-2xl mx-auto text-lg">
+        Harga transparan, tanpa biaya tersembunyi. Bisa disesuaikan dengan kebutuhan.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 items-start">
+      {plans.map((plan, i) => (
+        <div class={`reveal relative bg-white rounded-2xl p-8 border-2 transition-all duration-300 hover:shadow-xl ${plan.featured ? 'border-primary shadow-lg shadow-primary/10 scale-[1.02]' : 'border-gray-100 hover:border-gray-200'}`} style={`transition-delay: ${i * 100}ms`}>
+          {plan.badge && (
+            <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap">
+              {plan.badge}
+            </span>
+          )}
+
+          <h3 class="text-xl font-bold">{plan.name}</h3>
+          <p class="text-sm text-muted mt-1 mb-4">{plan.desc}</p>
+
+          <div class="mb-6">
+            <span class="text-4xl font-extrabold tracking-tight text-dark">Rp {plan.price}</span>
+            <span class="text-lg font-semibold text-muted">{plan.unit}</span>
+          </div>
+
+          <ul class="space-y-3 mb-8">
+            {plan.features.map((f) => (
+              <li class="flex items-start gap-2.5 text-sm">
+                <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-muted">{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href={`https://wa.me/628159203331?text=${encodeURIComponent(plan.waMsg)}`}
+            target="_blank"
+            rel="noopener"
+            class={`block text-center w-full px-6 py-3 font-semibold rounded-lg transition-colors no-underline ${plan.featured ? 'bg-primary text-white hover:bg-primary-dark' : 'bg-white text-dark border border-gray-200 hover:border-primary hover:text-primary'}`}
+          >
+            Pilih {plan.name}
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <p class="reveal text-center text-muted mt-8 text-sm">
+      Harga bisa disesuaikan kebutuhan. Chat aja dulu, gratis kok.
+    </p>
+  </div>
+</section>

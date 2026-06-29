@@ -1,0 +1,56 @@
+---
+const currentYear = new Date().getFullYear();
+const navLinks = [
+  { href: "#layanan", label: "Layanan" },
+  { href: "#portfolio", label: "Portfolio" },
+  { href: "#harga", label: "Harga" },
+  { href: "#faq", label: "FAQ" },
+];
+---
+
+<footer class="bg-dark border-t border-gray-800">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <a href="#" class="text-lg font-extrabold text-white no-underline">
+          websitetermaju <span class="text-primary-light">✦</span>
+        </a>
+        <p class="text-sm text-gray-400 mt-3 leading-relaxed">
+          Jasa pembuatan website profesional untuk UMKM & bisnis. Desain modern, harga terjangkau.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-sm font-semibold text-white mb-4">Menu</h4>
+        <ul class="space-y-2.5">
+          {navLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors no-underline">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-sm font-semibold text-white mb-4">Kontak</h4>
+        <ul class="space-y-2.5 text-sm text-gray-400">
+          <li>
+            <a href="https://wa.me/628159203331" target="_blank" rel="noopener" class="hover:text-white transition-colors no-underline">
+              0815-9203-331 (WhatsApp)
+            </a>
+          </li>
+          <li>
+            <a href="mailto:websitetermaju@gmail.com" class="hover:text-white transition-colors no-underline">
+              websitetermaju@gmail.com
+            </a>
+          </li>
+          <li>Balas cepat jam 08.00–21.00 WIB</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800 mt-10 pt-6 text-center text-xs text-gray-500">
+      &copy; {currentYear} Websitetermaju. All rights reserved.
+    </div>
+  </div>
+</footer>

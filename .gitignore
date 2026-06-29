@@ -1,1 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build output (dist/ tracked for cPanel deploy)
+# dist/
+
+# Astro
+.astro/
+
+# Editor
 .superpowers/
+.blackboxcli/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
