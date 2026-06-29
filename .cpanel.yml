@@ -4,3 +4,4 @@ deployment:
     - export DEPLOYPATH=/home/webterma/public_html
     - /bin/cp -Rf dist/* $DEPLOYPATH/
     - /bin/cp -Rf dist/_astro $DEPLOYPATH/
+    - /bin/cp -Rf dist/portfolio $DEPLOYPATH/
