@@ -1,0 +1,174 @@
+---
+const wa = (msg: string) => `https://wa.me/628159203331?text=${encodeURIComponent(msg)}`;
+const products = [
+  { name: "Paket Vitamin & Imun Booster", price: "Rp 85.000", desc: "Kombinasi Multivitamin C, D3, dan Zink untuk menjaga daya tahan tubuh harian.", grad: "linear-gradient(135deg,#06B6D4,#0891B2)" },
+  { name: "Alat Cek Kesehatan 3-in-1", price: "Rp 195.000", desc: "Alat ukur kadar gula darah, kolesterol, dan asam urat digital praktis untuk di rumah.", grad: "linear-gradient(135deg,#0891B2,#0369A1)" },
+  { name: "P3K Family Kit", price: "Rp 65.000", desc: "Tas obat lengkap berisi plester, perban, antiseptik, gunting, dan obat luka esensial.", grad: "linear-gradient(135deg,#22D3EE,#0891B2)" },
+  { name: "Minyak Telon & Perawatan Bayi", price: "Rp 45.000", desc: "Minyak telon lavender herbal hangat, aman untuk kulit sensitif bayi agar tidur lelap.", grad: "linear-gradient(135deg,#0369A1,#0284C7)" },
+  { name: "Masker Medis 3-Ply (Box isi 50)", price: "Rp 35.000", desc: "Masker bedah tiga lapis bersertifikasi Kemenkes dengan efisiensi filtrasi bakteri tinggi.", grad: "linear-gradient(135deg,#0891B2,#22D3EE)" },
+  { name: "Oximeter Digital Fingertip", price: "Rp 75.000", desc: "Alat pengukur saturasi oksigen darah (SpO2) dan detak jantung akurat sekali tekan.", grad: "linear-gradient(135deg,#0284C7,#06B6D4)" },
+];
+---
+
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apotek Sehat — Solusi Kesehatan & Kebutuhan Medis Keluarga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lexend:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; color: #1E293B; background: #F8FAFC; }
+    a { text-decoration: none; color: inherit; }
+    
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .logo { font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 1.5rem; color: #0891B2; display: flex; align-items: center; gap: 0.5rem; }
+    .nav-links { display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 600; color: #475569; }
+    .nav-links a:hover { color: #0891B2; }
+    .nav-cta { background: #0891B2; color: #fff; padding: 0.6rem 1.4rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem; }
+
+    .hero { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .hero-content { display: flex; flex-direction: column; align-items: flex-start; }
+    .badge { background: #CFFAFE; color: #0891B2; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 50px; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .hero h1 { font-family: 'Lexend', sans-serif; font-size: 3rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; color: #0F172A; }
+    .hero h1 span { color: #0891B2; }
+    .hero p { color: #475569; font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem; }
+    .hero-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #0891B2; color: #fff; padding: 0.9rem 2.2rem; border-radius: 8px; font-weight: 700; box-shadow: 0 4px 14px rgba(8,145,178,0.2); }
+    .hero-img { width: 100%; aspect-ratio: 1.1; background: linear-gradient(135deg, #A5F3FC, #0891B2); border-radius: 2rem; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .hero-img svg { width: 100px; height: 100px; opacity: 0.25; color: #fff; }
+
+    .features { background: #0891B2; color: #ECFEFF; padding: 5rem 2rem; }
+    .features-inner { max-width: 1100px; margin: 0 auto; }
+    .features h2 { font-family: 'Lexend', sans-serif; font-size: 2.2rem; text-align: center; margin-bottom: 3.5rem; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .feat-card { background: rgba(255,255,255,0.06); border-radius: 1rem; padding: 2.5rem 2rem; border: 1px solid rgba(255,255,255,0.1); }
+    .feat-icon { width: 56px; height: 56px; background: #22D3EE; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+    .feat-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; font-family: 'Lexend', sans-serif; }
+    .feat-card p { font-size: 0.95rem; opacity: 0.8; line-height: 1.6; }
+
+    .products-section { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
+    .section-head { text-align: center; margin-bottom: 4rem; }
+    .section-head h2 { font-family: 'Lexend', sans-serif; font-size: 2.4rem; color: #0F172A; margin-bottom: 0.75rem; }
+    .section-head p { color: #475569; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .card { background: #fff; border: 1px solid #E2E8F0; border-radius: 1rem; overflow: hidden; transition: all .3s; }
+    .card:hover { box-shadow: 0 20px 40px rgba(8,145,178,0.06); transform: translateY(-4px); border-color: #AED5EC; }
+    .card-img { position: relative; aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .card-img svg { width: 48px; height: 48px; opacity: 0.25; color: #fff; }
+    .card-body { padding: 1.5rem; }
+    .card-body h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: #0F172A; font-family: 'Lexend', sans-serif; }
+    .card-body p { font-size: 0.875rem; color: #64748B; line-height: 1.5; margin-bottom: 1.25rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; }
+    .card-price { font-weight: 800; color: #0891B2; font-size: 1.1rem; }
+    .card-btn { display: inline-flex; align-items: center; gap: 0.25rem; background: #0891B2; color: #fff; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.8rem; font-weight: 700; }
+
+    .cta { background: #0891B2; color: #fff; text-align: center; padding: 6rem 2rem; position: relative; overflow: hidden; }
+    .cta-inner { position: relative; z-index: 10; max-width: 600px; margin: 0 auto; }
+    .cta h2 { font-family: 'Lexend', sans-serif; font-size: 2.6rem; font-weight: 700; margin-bottom: 1rem; }
+    .cta p { opacity: 0.9; margin-bottom: 2.2rem; line-height: 1.6; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #fff; color: #0891B2; padding: 1rem 2.4rem; border-radius: 8px; font-weight: 800; box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+
+    footer { background: #0F172A; color: #94A3B8; text-align: center; padding: 3rem 2rem; font-size: 0.875rem; }
+    footer a { color: #22D3EE; }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero-content { align-items: center; }
+      .hero h1 { font-size: 2.2rem; }
+      .features-grid, .grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 10.5h-5.5V5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v5.5H5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5h5.5V19c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-5.5H19c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5z"/></svg>
+      Apotek Sehat
+    </div>
+    <div class="nav-links">
+      <a href="#layanan">Layanan</a>
+      <a href="#produk">Produk Unggulan</a>
+      <a href="#konsultasi">Tanya Apoteker</a>
+    </div>
+    <a href={wa("Halo Apotek Sehat, saya ingin bertanya ketersediaan obat.")} class="nav-cta" target="_blank">Hubungi Apoteker</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">Apoteker Berlisensi SIA & SIPA</span>
+      <h1>Kebutuhan obat & <span>kesehatan</span> keluarga Anda.</h1>
+      <p>Menyediakan obat resep dan non-resep lengkap, alat kesehatan, vitamin, serta konsultasi gratis bersama apoteker terpercaya kami.</p>
+      <a href={wa("Halo Apotek Sehat, saya mau beli obat resep dokter.")} class="hero-btn" target="_blank">
+        Kirim Resep Dokter (WA)
+      </a>
+    </div>
+    <div class="hero-img">
+      <svg fill="currentColor" viewBox="0 0 24 24"><path d="M4.5 10.5C3.67 10.5 3 11.17 3 12s.67 1.5 1.5 1.5h15c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5h-15zm3-5C6.67 5.5 6 6.17 6 7s.67 1.5 1.5 1.5h9c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5h-9zm-3 10C3.67 15.5 3 16.17 3 17s.67 1.5 1.5 1.5h15c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5h-15z"/></svg>
+    </div>
+  </section>
+
+  <section class="features" id="layanan">
+    <div class="features-inner">
+      <h2>Mengapa Belanja di Apotek Sehat?</h2>
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V9h2v2z"/></svg></div>
+          <h3>100% Produk Asli & Resmi</h3>
+          <p>Seluruh obat dan suplemen kami dipasok langsung dari distributor resmi (PBF) berizin BPOM demi keamanan konsumsi.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+          <h3>Konsultasi Apoteker Gratis</h3>
+          <p>Butuh penjelasan dosis atau efek samping? Hubungi kami langsung di WhatsApp untuk panduan penggunaan obat yang benar.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M20 8h-3V4H7v4H4c-1.1 0-2 .9-2 2v10h20V10c0-1.1-.9-2-2-2zM9 6h6v2H9V6zm11 12H4v-6h16v6z"/></svg></div>
+          <h3>Layanan Antar Cepat</h3>
+          <p>Malas keluar rumah saat sakit? Kami siap mengantar kebutuhan obat Anda langsung ke depan rumah, pembayaran praktis COD/Transfer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section" id="produk">
+    <div class="section-head">
+      <h2>Kebutuhan Kesehatan Paling Dicari</h2>
+      <p>Produk kesehatan pilihan untuk menjaga kondisi tubuh Anda dan keluarga</p>
+    </div>
+    <div class="grid">
+      {products.map((p) => (
+        <div class="card">
+          <div class="card-img" style={`background: ${p.grad}`}>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 10.5h-5.5V5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v5.5H5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5h5.5V19c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-5.5H19c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5z"/></svg>
+          </div>
+          <div class="card-body">
+            <h3>{p.name}</h3>
+            <p>{p.desc}</p>
+            <div class="card-footer">
+              <div class="card-price">{p.price}</div>
+              <a href={wa(`Halo Apotek Sehat, saya ingin membeli: ${p.name}`)} class="card-btn" target="_blank">Beli</a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta" id="konsultasi">
+    <div class="cta-inner">
+      <h2>Punya Resep Dokter atau Butuh Obat Khusus?</h2>
+      <p>Foto resep dokter Anda dan kirimkan ke WhatsApp kami. Apoteker kami akan segera memeriksa ketersediaan obat dan menghitung total harga.</p>
+      <a href={wa("Halo Apotek Sehat, saya mau tanya/tebus resep dokter berikut.")} class="cta-btn" target="_blank">
+        Chat Apoteker (WA)
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Apotek Sehat. Dibuat oleh <a href="https://webtermajuumkm.com">Websitetermaju</a></p>
+  </footer>
+</body>
+</html>

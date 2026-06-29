@@ -1,11 +1,11 @@
 ---
 const projects = [
-  { title: "Kopi Senja", category: "Landing Page", color: "from-amber-400 to-orange-500" },
-  { title: "Bengkel Mas Yono", category: "Company Profile", color: "from-blue-400 to-indigo-500" },
-  { title: "Batik Larasati", category: "Toko Online", color: "from-rose-400 to-pink-500" },
-  { title: "Katering Bu Rina", category: "Landing Page", color: "from-emerald-400 to-teal-500" },
-  { title: "Studio Kreatif", category: "Company Profile", color: "from-violet-400 to-purple-500" },
-  { title: "Apotek Sehat", category: "Custom Web App", color: "from-cyan-400 to-blue-500" },
+  { title: "Kopi Senja", category: "Landing Page", color: "from-amber-400 to-orange-500", slug: "kopi-senja" },
+  { title: "Bengkel Mas Yono", category: "Company Profile", color: "from-blue-400 to-indigo-500", slug: "bengkel-mas-yono" },
+  { title: "Batik Larasati", category: "Toko Online", color: "from-rose-400 to-pink-500", slug: "batik-larasati" },
+  { title: "Katering Bu Rina", category: "Landing Page", color: "from-emerald-400 to-teal-500", slug: "katering-bu-rina" },
+  { title: "Studio Kreatif", category: "Company Profile", color: "from-violet-400 to-purple-500", slug: "studio-kreatif" },
+  { title: "Apotek Sehat", category: "Custom Web App", color: "from-cyan-400 to-blue-500", slug: "apotek-sehat" },
 ];
 ---
 
@@ -23,20 +23,26 @@ const projects = [
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {projects.map((p, i) => (
-        <div class="reveal group cursor-pointer" style={`transition-delay: ${(i % 3) * 100}ms`}>
-          <div class="relative overflow-hidden rounded-xl border border-gray-100 bg-white">
-            <div class={`aspect-[16/10] bg-gradient-to-br ${p.color} flex items-center justify-center`}>
+        <a href={`/portfolio/${p.slug}`} target="_blank" rel="noopener" class="reveal group no-underline" style={`transition-delay: ${(i % 3) * 100}ms`}>
+          <div class="relative overflow-hidden rounded-xl border border-gray-100 bg-white transition-all duration-300 group-hover:border-primary/20 group-hover:shadow-lg group-hover:shadow-primary/5">
+            <div class={`relative aspect-[16/10] bg-gradient-to-br ${p.color} flex items-center justify-center`}>
               <div class="text-white/90 text-center">
                 <svg class="w-12 h-12 mx-auto mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 <span class="text-sm font-medium opacity-70">Preview</span>
               </div>
+              <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors">
+                <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-dark text-sm font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5">
+                  Lihat demo
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </span>
+              </div>
             </div>
             <div class="p-5">
               <span class="text-xs font-medium text-primary bg-primary/10 px-2.5 py-1 rounded-full">{p.category}</span>
-              <h3 class="text-base font-bold mt-3 group-hover:text-primary transition-colors">{p.title}</h3>
+              <h3 class="text-base font-bold mt-3 text-dark group-hover:text-primary transition-colors">{p.title}</h3>
             </div>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   </div>

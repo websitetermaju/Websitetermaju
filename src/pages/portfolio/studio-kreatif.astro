@@ -1,0 +1,162 @@
+---
+const wa = (msg: string) => `https://wa.me/628159203331?text=${encodeURIComponent(msg)}`;
+const services = [
+  { name: "Desain Logo & Identitas Brand", price: "Mulai Rp 1.500.000", desc: "Desain logo profesional beserta guidelines warna, tipografi, dan mockup aplikasi brand.", grad: "linear-gradient(135deg,#8B5CF6,#6D28D9)" },
+  { name: "Website Development", price: "Mulai Rp 3.500.000", desc: "Pembuatan website company profile atau landing page responsif, cepat, ramah SEO.", grad: "linear-gradient(135deg,#6D28D9,#5B21B6)" },
+  { name: "Manajemen Sosial Media", price: "Mulai Rp 2.000.000 / bln", desc: "Pembuatan konten grafis dan caption instagram, penjadwalan postingan, & riset hashtag.", grad: "linear-gradient(135deg,#A78BFA,#7C3AED)" },
+  { name: "Fotografi Produk & Video", price: "Mulai Rp 1.800.000", desc: "Sesi foto produk di studio komersial beserta editing profesional untuk e-commerce / sosial media.", grad: "linear-gradient(135deg,#7C3AED,#6D28D9)" },
+  { name: "Desain Kemasan (Packaging)", price: "Mulai Rp 1.200.000", desc: "Desain label, box, maupun kantong belanja unik yang siap cetak untuk menarik minat pembeli.", grad: "linear-gradient(135deg,#6D28D9,#8B5CF6)" },
+  { name: "UI/UX App Design", price: "Mulai Rp 5.000.000", desc: "Perancangan antarmuka aplikasi mobile/web interaktif beserta user research dan visual wireframe.", grad: "linear-gradient(135deg,#5B21B6,#7C3AED)" },
+];
+---
+
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Kreatif — Solusi Desain & Brand Identitas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; color: #0F172A; background: #FAFAFD; }
+    a { text-decoration: none; color: inherit; }
+    
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.6rem; color: #6D28D9; letter-spacing: -0.03em; }
+    .nav-links { display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 600; color: #475569; }
+    .nav-links a:hover { color: #6D28D9; }
+    .nav-cta { background: #6D28D9; color: #fff; padding: 0.65rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem; transition: transform 0.2s; }
+    .nav-cta:hover { transform: translateY(-1px); }
+
+    .hero { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem 7rem; text-align: center; }
+    .badge { display: inline-block; background: #EDE9FE; color: #6D28D9; font-size: 0.75rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .hero h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; color: #0F172A; letter-spacing: -0.02em; }
+    .hero h1 span { color: #6D28D9; }
+    .hero p { color: #475569; font-size: 1.15rem; line-height: 1.8; margin-bottom: 2.5rem; max-width: 640px; mx-auto: 0; margin-left: auto; margin-right: auto; }
+    .hero-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #6D28D9; color: #fff; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 700; box-shadow: 0 4px 18px rgba(109,40,217,0.25); }
+
+    .features { background: #0F172A; color: #F8FAFC; padding: 6rem 2rem; }
+    .features-inner { max-width: 1100px; margin: 0 auto; }
+    .features h2 { font-family: 'Outfit', sans-serif; font-size: 2.2rem; text-align: center; margin-bottom: 4rem; letter-spacing: -0.01em; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .feat-card { background: rgba(255,255,255,0.03); border-radius: 1rem; padding: 2.5rem 2rem; border: 1px solid rgba(255,255,255,0.05); }
+    .feat-icon { width: 52px; height: 52px; background: #7C3AED; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+    .feat-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; font-family: 'Outfit', sans-serif; }
+    .feat-card p { font-size: 0.95rem; opacity: 0.75; line-height: 1.6; }
+
+    .services-section { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
+    .section-head { text-align: center; margin-bottom: 4rem; }
+    .section-head h2 { font-family: 'Outfit', sans-serif; font-size: 2.4rem; color: #0F172A; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+    .section-head p { color: #475569; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .card { background: #fff; border: 1px solid #E2E8F0; border-radius: 1rem; overflow: hidden; transition: all .3s; }
+    .card:hover { box-shadow: 0 20px 40px rgba(109,40,217,0.06); transform: translateY(-4px); border-color: #DDD6FE; }
+    .card-img { position: relative; aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .card-img svg { width: 44px; height: 44px; opacity: 0.25; color: #fff; }
+    .card-body { padding: 1.5rem; }
+    .card-body h3 { font-size: 1.20rem; font-weight: 700; margin-bottom: 0.5rem; color: #0F172A; font-family: 'Outfit', sans-serif; }
+    .card-body p { font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 1.5rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #F1F5F9; padding-top: 1.25rem; }
+    .card-price { font-weight: 800; color: #6D28D9; font-size: 1.05rem; }
+    .card-btn { display: inline-flex; align-items: center; gap: 0.25rem; background: #6D28D9; color: #fff; padding: 0.55rem 1.1rem; border-radius: 6px; font-size: 0.8rem; font-weight: 700; }
+
+    .cta { background: #6D28D9; color: #fff; text-align: center; padding: 6rem 2rem; position: relative; overflow: hidden; }
+    .cta-inner { position: relative; z-index: 10; max-width: 600px; margin: 0 auto; }
+    .cta h2 { font-family: 'Outfit', sans-serif; font-size: 2.6rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.01em; }
+    .cta p { opacity: 0.9; margin-bottom: 2.2rem; line-height: 1.6; font-size: 1.05rem; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #fff; color: #6D28D9; padding: 1rem 2.4rem; border-radius: 8px; font-weight: 800; box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+
+    footer { background: #0F172A; color: #64748B; text-align: center; padding: 3rem 2rem; font-size: 0.875rem; }
+    footer a { color: #A78BFA; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .features-grid, .grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo">StudioKreatif.</div>
+    <div class="nav-links">
+      <a href="#solusi">Solusi</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#proyek">Portofolio</a>
+    </div>
+    <a href={wa("Halo Studio Kreatif, saya ingin berkonsultasi tentang desain brand.")} class="nav-cta" target="_blank">Konsultasi</a>
+  </nav>
+
+  <section class="hero">
+    <span class="badge">Agensi Desain & Branding</span>
+    <h1>Tingkatkan brand Anda ke level <span>berikutnya</span>.</h1>
+    <p>Kami membantu UMKM hingga korporasi menciptakan visual brand yang menonjol, konsisten, dan mudah diingat oleh target audiens.</p>
+    <a href={wa("Halo Studio Kreatif, saya tertarik bekerja sama untuk project visual brand.")} class="hero-btn" target="_blank">
+      Mulai Proyek Visual
+    </a>
+  </section>
+
+  <section class="features" id="solusi">
+    <div class="features-inner">
+      <h2>Mengapa Bermitra Dengan Kami?</h2>
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-6h2v6zm0-8h-2V9h2v2z"/></svg></div>
+          <h3>Strategi Berorientasi Hasil</h3>
+          <p>Setiap desain yang kami buat didasarkan pada riset pasar dan kompetitor agar brand Anda dapat bersaing lebih kuat.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+          <h3>Revisi Bergaransi</h3>
+          <p>Kami menjamin kepuasan klien dengan menyediakan pilihan revisi desain yang fleksibel hingga mencapai hasil yang diinginkan.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"/></svg></div>
+          <h3>File Master Lengkap</h3>
+          <p>Anda mendapatkan seluruh source file desain dalam format mentah (AI, PSD, Figma) beserta format siap cetak kualitas tinggi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-section" id="layanan">
+    <div class="section-head">
+      <h2>Layanan Kreatif Kami</h2>
+      <p>Pilih solusi yang paling cocok untuk bisnis Anda hari ini</p>
+    </div>
+    <div class="grid">
+      {services.map((s) => (
+        <div class="card">
+          <div class="card-img" style={`background: ${s.grad}`}>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </div>
+          <div class="card-body">
+            <h3>{s.name}</h3>
+            <p>{s.desc}</p>
+            <div class="card-footer">
+              <div class="card-price">{s.price}</div>
+              <a href={wa(`Halo Studio Kreatif, saya tertarik layanan: ${s.name}`)} class="card-btn" target="_blank">Pesan</a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-inner">
+      <h2>Siap Berdiskusi Tentang Ide Anda?</h2>
+      <p>Hubungi desainer kami via WhatsApp sekarang untuk konsultasi gratis selama 30 menit mengenai identitas visual bisnis Anda.</p>
+      <a href={wa("Halo Studio Kreatif, saya mau jadwalkan sesi konsultasi desain brand.")} class="cta-btn" target="_blank">
+        Hubungi WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Studio Kreatif. Dibuat oleh <a href="https://webtermajuumkm.com">Websitetermaju</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,174 @@
+---
+const wa = (msg: string) => `https://wa.me/628159203331?text=${encodeURIComponent(msg)}`;
+const menus = [
+  { name: "Nasi Box Ayam Bakar Madu", price: "Rp 25.000", desc: "Nasi + Ayam Bakar + Tahu/Tempe + Lalapan + Sambal", grad: "linear-gradient(135deg,#10B981,#059669)" },
+  { name: "Prasmanan Tradisional", price: "Mulai Rp 45.000 / pax", desc: "Nasi Liwet, Ayam Goreng Lengkuas, Kakap Asam Manis, Cah Sayur, Sop", grad: "linear-gradient(135deg,#059669,#047857)" },
+  { name: "Nasi Tumpeng Kuning", price: "Rp 350.000 (10 Porsi)", desc: "Tumpeng hias lengkap dengan ayam, perkedel, mie goreng, urap", grad: "linear-gradient(135deg,#34D399,#059669)" },
+  { name: "Snack Box Arisan", price: "Rp 12.000", desc: "Isi 3 kue (asin & manis) + air mineral gelas", grad: "linear-gradient(135deg,#047857,#065F46)" },
+  { name: "Katering Harian Keluarga", price: "Rp 60.000 / hari", desc: "3 macam menu lauk & sayur untuk 3-4 orang porsi makan siang/malam", grad: "linear-gradient(135deg,#059669,#34D399)" },
+  { name: "Bubur Madura Manis", price: "Rp 15.000", desc: "Campuran bubur sumsum, ketan hitam, mutiara, santan dan gula merah", grad: "linear-gradient(135deg,#065F46,#10B981)" },
+];
+---
+
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katering Bu Rina — Masakan Rumahan Lezat & Halal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; color: #1E293B; background: #FFFDF9; }
+    a { text-decoration: none; color: inherit; }
+    
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.5rem; color: #047857; }
+    .nav-links { display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 600; color: #475569; }
+    .nav-links a:hover { color: #047857; }
+    .nav-cta { background: #047857; color: #fff; padding: 0.6rem 1.4rem; border-radius: 50px; font-weight: 600; font-size: 0.85rem; }
+
+    .hero { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .hero-content { display: flex; flex-direction: column; align-items: flex-start; }
+    .badge { background: #D1FAE5; color: #065F46; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 50px; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 700; line-height: 1.15; margin-bottom: 1.2rem; color: #0F172A; }
+    .hero h1 span { color: #047857; }
+    .hero p { color: #475569; font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem; }
+    .hero-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #047857; color: #fff; padding: 0.9rem 2.2rem; border-radius: 50px; font-weight: 700; box-shadow: 0 4px 14px rgba(4,120,87,0.2); }
+    .hero-img { width: 100%; aspect-ratio: 1.1; background: linear-gradient(135deg, #A7F3D0, #047857); border-radius: 2rem; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .hero-img svg { width: 100px; height: 100px; opacity: 0.25; color: #fff; }
+
+    .features { background: #065F46; color: #F0FDF4; padding: 5rem 2rem; }
+    .features-inner { max-width: 1100px; margin: 0 auto; }
+    .features h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-align: center; margin-bottom: 3.5rem; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .feat-card { background: rgba(255,255,255,0.06); border-radius: 1.25rem; padding: 2.5rem 2rem; border: 1px solid rgba(255,255,255,0.1); }
+    .feat-icon { width: 56px; height: 56px; background: #10B981; border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+    .feat-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .feat-card p { font-size: 0.95rem; opacity: 0.8; line-height: 1.6; }
+
+    .menu-section { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
+    .section-head { text-align: center; margin-bottom: 4rem; }
+    .section-head h2 { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #0F172A; margin-bottom: 0.75rem; }
+    .section-head p { color: #475569; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .card { background: #fff; border: 1px solid #E2E8F0; border-radius: 1.25rem; overflow: hidden; transition: all .3s; }
+    .card:hover { box-shadow: 0 20px 40px rgba(15,23,42,0.06); transform: translateY(-4px); border-color: #A7F3D0; }
+    .card-img { position: relative; aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .card-img svg { width: 48px; height: 48px; opacity: 0.25; color: #fff; }
+    .card-body { padding: 1.5rem; }
+    .card-body h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: #0F172A; }
+    .card-body p { font-size: 0.875rem; color: #64748B; line-height: 1.5; margin-bottom: 1.25rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; }
+    .card-price { font-weight: 800; color: #047857; font-size: 1.1rem; }
+    .card-btn { display: inline-flex; align-items: center; gap: 0.25rem; background: #065F46; color: #fff; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; }
+
+    .cta { background: #047857; color: #fff; text-align: center; padding: 6rem 2rem; position: relative; overflow: hidden; }
+    .cta-inner { position: relative; z-index: 10; max-width: 600px; margin: 0 auto; }
+    .cta h2 { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 700; margin-bottom: 1rem; }
+    .cta p { opacity: 0.9; margin-bottom: 2.2rem; line-height: 1.6; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #fff; color: #047857; padding: 1rem 2.4rem; border-radius: 50px; font-weight: 800; box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+
+    footer { background: #0F172A; color: #94A3B8; text-align: center; padding: 3rem 2rem; font-size: 0.875rem; }
+    footer a { color: #34D399; }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero-content { align-items: center; }
+      .hero h1 { font-size: 2.2rem; }
+      .features-grid, .grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo">Bu Rina Katering 🍲</div>
+    <div class="nav-links">
+      <a href="#keunggulan">Keunggulan</a>
+      <a href="#menu">Menu Kami</a>
+      <a href="#pesan">Cara Pesan</a>
+    </div>
+    <a href={wa("Halo Bu Rina, saya ingin memesan katering.")} class="nav-cta" target="_blank">Pesan via WA</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">100% Halal & Higienis</span>
+      <h1>Masakan <span>rumahan</span> rasa restoran.</h1>
+      <p>Cita rasa otentik dengan bahan segar pilihan. Menyediakan nasi box, prasmanan, tumpeng, hingga katering harian keluarga.</p>
+      <a href={wa("Halo Bu Rina, saya mau pesan katering untuk acara.")} class="hero-btn" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l5.1-1.4A10 10 0 1 0 12 2Z"/></svg>
+        Pesan Katering Sekarang
+      </a>
+    </div>
+    <div class="hero-img">
+      <svg fill="currentColor" viewBox="0 0 24 24"><path d="M11 9H9V2H7V9H5V2H3V9C3 11.1 4.5 12.8 6.5 13.3V22H8.5V13.3C10.5 12.8 12 11.1 12 9V2H11V9M16 6H13V12H16C17.7 12 19 10.7 19 9V2H16V6M21 2H20V22H21V2Z"/></svg>
+    </div>
+  </section>
+
+  <section class="features" id="keunggulan">
+    <div class="features-inner">
+      <h2>Mengapa Memilih Kami?</h2>
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2m-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+          <h3>Bahan Segar Berkualitas</h3>
+          <p>Kami belanja bahan baku setiap pagi langsung dari pasar induk untuk menjamin kesegaran dan gizi masakan.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.22 19.58 10.57 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg></div>
+          <h3>Tepat Waktu & Aman</h3>
+          <p>Pengantaran menggunakan armada kurir sendiri sehingga makanan sampai di tempat Anda tetap hangat dan tepat waktu.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg></div>
+          <h3>Menu Bisa Custom</h3>
+          <p>Punya budget atau pantangan tertentu? Kami siap menyesuaikan menu sesuai dengan keinginan dan kebutuhan Anda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="menu">
+    <div class="section-head">
+      <h2>Pilihan Menu Terpopuler</h2>
+      <p>Menu rumahan paling banyak disukai oleh pelanggan kami</p>
+    </div>
+    <div class="grid">
+      {menus.map((m) => (
+        <div class="card">
+          <div class="card-img" style={`background: ${m.grad}`}>
+            <div class="motif"></div>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M11 9H9V2H7V9H5V2H3V9C3 11.1 4.5 12.8 6.5 13.3V22H8.5V13.3C10.5 12.8 12 11.1 12 9V2H11V9M16 6H13V12H16C17.7 12 19 10.7 19 9V2H16V6M21 2H20V22H21V2Z"/></svg>
+          </div>
+          <div class="card-body">
+            <h3>{m.name}</h3>
+            <p>{m.desc}</p>
+            <div class="card-footer">
+              <div class="card-price">{m.price}</div>
+              <a href={wa(`Halo Bu Rina, saya ingin pesan menu: ${m.name}`)} class="card-btn" target="_blank">Pesan</a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta" id="pesan">
+    <div class="cta-inner">
+      <h2>Ada Acara Dalam Waktu Dekat?</h2>
+      <p>Konsultasikan menu katering Anda sekarang. Dapatkan penawaran harga terbaik dan gratis tester menu untuk pesanan partai besar.</p>
+      <a href={wa("Halo Bu Rina, saya butuh penawaran katering.")} class="cta-btn" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#047857"><path d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l5.1-1.4A10 10 0 1 0 12 2Zm0 18.1c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3 0-.2 0-.3-.1-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.7 4.3 3.8.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.3Z"/></svg>
+        Hubungi WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Katering Bu Rina. Dibuat oleh <a href="https://webtermajuumkm.com">Websitetermaju</a></p>
+  </footer>
+</body>
+</html>

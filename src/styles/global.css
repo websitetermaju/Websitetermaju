@@ -1,16 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #4F46E5;
-  --color-primary-dark: #3730A3;
-  --color-primary-light: #818CF8;
-  --color-dark: #0F172A;
-  --color-muted: #64748B;
-  --color-light: #F8FAFC;
-  --color-border: #E2E8F0;
+  /* "Pasar Pagi" — warm emerald trust + marigold optimism, grounded in Indonesian small-business warmth (not generic SaaS indigo) */
+  --color-primary: #0E7C66;
+  --color-primary-dark: #0A5C4B;
+  --color-primary-light: #34D399;
+  --color-accent: #F2A93B;
+  --color-accent-dark: #D98A1E;
+  --color-dark: #1A2E29;
+  --color-muted: #5C6B66;
+  --color-light: #FBF9F5;
+  --color-border: #E6E2D8;
   --color-wa: #25D366;
   --color-wa-dark: #128C7E;
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-display: "Bricolage Grotesque", "Plus Jakarta Sans", sans-serif;
 }
 
 @layer base {
@@ -22,7 +26,33 @@
   body {
     font-family: var(--font-sans);
     color: var(--color-dark);
+    background-color: var(--color-light);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Signature: hand-drawn marigold underline on hero keyword — personal, UMKM-craft feel */
+.scribble {
+  position: relative;
+  z-index: 0; /* local stacking context so ::after (z-index:-1) sits above section bg, below text */
+  white-space: nowrap;
+}
+.scribble::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: 0.04em;
+  height: 0.32em;
+  background: var(--color-accent);
+  opacity: 0.5;
+  border-radius: 0.2em 0.45em 0.3em 0.5em;
+  transform: rotate(-1deg);
+  z-index: -1;
 }

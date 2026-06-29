@@ -1,0 +1,167 @@
+---
+const wa = "https://wa.me/628159203331?text=Halo%2C%20saya%20mau%20pesan%20kopi.";
+---
+
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kopi Senja — Kedai Kopi Pilihan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; color: #2C1810; background: #FDF8F4; }
+    a { text-decoration: none; color: inherit; }
+
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.5rem; color: #8B4513; }
+    .nav-links { display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a:hover { color: #8B4513; }
+    .nav-cta { background: #8B4513; color: #fff; padding: 0.6rem 1.4rem; border-radius: 50px; font-weight: 600; font-size: 0.85rem; }
+
+    .hero { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.2rem; }
+    .hero h1 span { color: #8B4513; }
+    .hero p { color: #6B5344; font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; }
+    .hero-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #8B4513; color: #fff; padding: 0.9rem 2rem; border-radius: 50px; font-weight: 600; }
+    .hero-img { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #D4A574, #8B4513); border-radius: 2rem; display: flex; align-items: center; justify-content: center; }
+    .hero-img svg { width: 120px; height: 120px; opacity: 0.3; }
+
+    .features { background: #2C1810; color: #FDF8F4; padding: 4rem 2rem; }
+    .features-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+    .features h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 3rem; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .feat-card { background: rgba(255,255,255,0.08); border-radius: 1rem; padding: 2rem; }
+    .feat-card h3 { font-size: 1.1rem; margin: 1rem 0 0.5rem; }
+    .feat-card p { font-size: 0.9rem; opacity: 0.7; line-height: 1.6; }
+    .feat-icon { width: 48px; height: 48px; background: #8B4513; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto; }
+
+    .menu { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; text-align: center; }
+    .menu h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 0.5rem; }
+    .menu-sub { color: #6B5344; margin-bottom: 2.5rem; }
+    .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .menu-card { background: #fff; border-radius: 1rem; overflow: hidden; border: 1px solid #E8DDD4; }
+    .menu-img { aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
+    .menu-info { padding: 1.2rem; text-align: left; }
+    .menu-info h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+    .menu-info p { font-size: 0.85rem; color: #6B5344; }
+    .menu-price { font-weight: 700; color: #8B4513; font-size: 1.1rem; margin-top: 0.5rem; }
+
+    .cta-section { background: #8B4513; color: #fff; text-align: center; padding: 4rem 2rem; }
+    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 1rem; }
+    .cta-section p { opacity: 0.85; margin-bottom: 2rem; font-size: 1.05rem; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #fff; color: #8B4513; padding: 0.9rem 2rem; border-radius: 50px; font-weight: 700; }
+
+    footer { background: #2C1810; color: rgba(253,248,244,0.6); text-align: center; padding: 2rem; font-size: 0.85rem; }
+
+    .badge { display: inline-block; background: rgba(139,69,19,0.1); color: #8B4513; font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 50px; margin-bottom: 1rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero h1 { font-size: 2.2rem; }
+      .features-grid, .menu-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-logo">Kopi Senja ☕</div>
+    <div class="nav-links">
+      <a href="#menu">Menu</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+    <a href={wa} class="nav-cta" target="_blank">Pesan Sekarang</a>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <span class="badge">Kedai Kopi Artisan</span>
+      <h1>Nikmati kopi <span>terbaik</span> di sore hari.</h1>
+      <p>Kopi pilihan dari biji lokal terbaik, diseduh dengan cinta. Cocok untuk menemani senja kamu.</p>
+      <a href={wa} class="hero-btn" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l5.1-1.4A10 10 0 1 0 12 2Z"/></svg>
+        Pesan via WhatsApp
+      </a>
+    </div>
+    <div class="hero-img">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M2 21V19H4V12C4 10.9 4.19 9.86 4.59 8.9C4.99 7.94 5.53 7.12 6.23 6.42L7.3 8.2C6.83 8.7 6.46 9.27 6.19 9.9C5.92 10.53 5.78 11.23 5.78 12V19H11V13H13V19H18.22V12C18.22 10.63 17.77 9.4 16.88 8.3C15.99 7.2 14.88 6.47 13.55 6.1L14 4.16C15.75 4.61 17.22 5.56 18.39 7C19.56 8.44 20.15 10.1 20.15 12V19H22V21H2Z"/></svg>
+    </div>
+  </section>
+
+  <section class="features" id="tentang">
+    <div class="features-inner">
+      <h2>Kenapa Kopi Senja?</h2>
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+          <h3>Biji Pilihan</h3>
+          <p>100% arabika lokal dari petani Jawa Barat dan Sumatera. Dipanggang sempurna setiap hari.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M12.5 7H11V13L16.2 16.2L17 14.9L12.5 12.2V7Z"/></svg></div>
+          <h3>Buka Tiap Hari</h3>
+          <p>Buka dari jam 10 pagi sampai 10 malam. Tempat nyaman buat kerja atau nongkrong.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M11.5 1L2 6V8H21V6L11.5 1M16 10V17H19V10H16M2 22H21V19H2V22M10 10V17H13V10H10M4 10V17H7V10H4Z"/></svg></div>
+          <h3>Harga Bersahabat</h3>
+          <p>Mulai dari Rp 15.000. Kopi enak nggak harus mahal, kan?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <span class="badge">Menu Favorit</span>
+    <h2>Pilihan kopi kami</h2>
+    <p class="menu-sub">Semua diseduh fresh, nggak pake lama.</p>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-img" style="background: linear-gradient(135deg, #D4A574, #6B3A1F);">
+          <svg width="48" height="48" fill="white" opacity="0.4" viewBox="0 0 24 24"><path d="M2 21V19H20V21H2M20 8V5H18V8H20M20 3H18V1H20V3M4 17H18V7H4V17Z"/></svg>
+        </div>
+        <div class="menu-info">
+          <h3>Kopi Susu Senja</h3>
+          <p>Espresso + susu segar + gula aren</p>
+          <div class="menu-price">Rp 22.000</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img" style="background: linear-gradient(135deg, #4A2C1A, #2C1810);">
+          <svg width="48" height="48" fill="white" opacity="0.4" viewBox="0 0 24 24"><path d="M2 21V19H20V21H2M20 8V5H18V8H20M20 3H18V1H20V3M4 17H18V7H4V17Z"/></svg>
+        </div>
+        <div class="menu-info">
+          <h3>Americano</h3>
+          <p>Double shot espresso + air panas</p>
+          <div class="menu-price">Rp 18.000</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img" style="background: linear-gradient(135deg, #C4956A, #8B6344);">
+          <svg width="48" height="48" fill="white" opacity="0.4" viewBox="0 0 24 24"><path d="M2 21V19H20V21H2M20 8V5H18V8H20M20 3H18V1H20V3M4 17H18V7H4V17Z"/></svg>
+        </div>
+        <div class="menu-info">
+          <h3>Matcha Latte</h3>
+          <p>Matcha premium Jepang + susu oat</p>
+          <div class="menu-price">Rp 28.000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="kontak">
+    <h2>Mau pesan atau reservasi?</h2>
+    <p>Chat kami di WhatsApp, balas cepat!</p>
+    <a href={wa} class="cta-btn" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#8B4513"><path d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l5.1-1.4A10 10 0 1 0 12 2Zm0 18.1c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3 0-.2 0-.3-.1-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.7 4.3 3.8.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.3Z"/></svg>
+      Chat WhatsApp
+    </a>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Kopi Senja. Dibuat oleh <a href="https://webtermajuumkm.com" style="color:#D4A574;">Websitetermaju</a></p>
+  </footer>
+</body>
+</html>
