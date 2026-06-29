@@ -1,6 +1,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/sigmarto/public_html
+    - export DEPLOYPATH=/home/webterma/public_html
     - /bin/cp -Rf dist/* $DEPLOYPATH/
     - /bin/cp -Rf dist/_astro $DEPLOYPATH/
