@@ -20,6 +20,8 @@ Produk berdiri di atas **tiga pilar**:
 
 Diikat satu benang: **agen gaptek berhenti rugi diam-diam, cukup lewat chat.**
 
+**Pelengkap "gantiin EDC":** app sudah bisa **cetak ulang struk m-banking ke printer thermal 58mm** — foto struk → catat → cetak bukti fisik untuk customer. Fitur inti semua tier (butuh printer thermal terpisah).
+
 **Visi jangka panjang:** AI yang sama yang paham chat transaksi akan tumbuh memahami **barang di kamera** — melahirkan **kasir visual tanpa barcode** (Fase 3), moat yang belum dimiliki kompetitor manapun.
 
 ---
@@ -131,10 +133,11 @@ flowchart TD
 │  TIER 1 — MURAH        │  eskalasi  │  TIER 2 — PINTAR          │
 │  ┌─────────┐┌────────┐ │  ───────▶  │  ┌────────┐┌───────────┐  │
 │  │DeepSeek ││ Gemini │ │  jika:     │  │ Claude ││  OpenAI   │  │
-│  │  Chat   ││ Flash  │ │  • ragu    │  │ Sonnet ││  GPT-4o   │  │
-│  └─────────┘└────────┘ │  • foto    │  └────────┘└───────────┘  │
-│   failover antar-      │  • rumit   │   failover antar-provider │
-│   provider se-tier     │            │                           │
+│  │  Chat   ││Flash-  │ │  • ragu    │  │ Sonnet ││  GPT-4o   │  │
+│  │$.14/.28 ││Lite    │ │  • foto    │  │        ││ (vision)  │  │
+│  └─────────┘└────────┘ │  • rumit   │  └────────┘└───────────┘  │
+│   failover antar-      │            │   failover antar-provider │
+│   provider se-tier     │            │   (kasus sulit + vision)  │
 └───────────────────────┘            └───────────────────────────┘
         │                                        │
         └──────────────┬─────────────────────────┘
@@ -273,36 +276,78 @@ Prinsip sama: **AI mempersempit, manusia konfirmasi** — konsisten dengan "konf
 
 ## 9. Model Bisnis & Ekonomi Unit
 
-### 9.1 Paket (busur pertumbuhan)
+### 9.1 Filosofi harga — batasi yang mahal, gratiskan yang murah
+Biaya AI **tidak seragam**. Chat teks nyaris gratis; OCR vision-AI ~10–25× lebih mahal per panggilan. Maka:
+- **Chat teks = UNLIMITED semua tier** (murah, memperkuat "segampang ATM").
+- **OCR on-device (ML Kit) = UNLIMITED semua tier** (jalan di HP agen, Rp0 ke server; sudah akurat untuk BRI, BCA lama/baru, bank digital minim watermark).
+- **AI-vision (struk sulit banyak-watermark) = SATU-SATUNYA yang dibatasi/dijatah** — inilah biaya nyata.
+
+Kunci: mayoritas customer pakai bank digital (tanpa watermark) → ditangani ML Kit → gratis. AI-vision hanya nyala untuk minoritas struk sulit yang ML Kit meleset. Volume nyata AI-vision rendah → COGS aman.
+
+### 9.2 Paket (busur pertumbuhan)
 | Tahap | Paket | Harga/bln | Isi |
 |---|---|---|---|
 | Trial | Coba Gratis | 14 hari | Semua fitur, tanpa kartu |
-| MVP | **Agen** | **Rp 29.000** | Chat AI, anti-tipu, otak keuangan, 1 konter |
-| Fase 2 | + Owner | Rp 49.000 | Multi-cabang, role kasir/owner, web dashboard |
+| MVP | **Agen** | **Rp 29.000** | Chat AI unlimited, OCR on-device unlimited, **AI-vision 30/bln**, anti-tipu, otak keuangan, cetak struk, 1 konter |
+| MVP | **Agen Pro** | **Rp 69.000** | Semua Agen + AI-vision lega + prioritas Tier-2 + analitik |
+| Fase 2 | **Owner** | **Rp 149.000** | Multi-cabang (2–3), role kasir/owner, web dashboard |
+| Fase 2 | + Cabang tambahan | **+Rp 39.000/cabang** | Cabang ke-4 dst |
 | Fase 3 | + **Kasir Visual** (addon) | **+Rp 79.000** | Katalog visual, scan tanpa barcode |
 
-ARPU puncak (agen+toko): **Rp 108.000/bln**.
+### 9.3 Add-on AI-Vision (tanpa upgrade Pro)
+Untuk agen tier bawah yang butuh AI-vision lebih dari 30/bln — **beli add-on unlimited**, tak perlu lompat ke Pro. Harga 30-hari sengaja disamakan dengan fee transfer beda-bank (Rp14.900) — angka yang **familiar** di kepala agen.
 
-### 9.2 Ekonomi unit (per agen/bln, MVP)
-| Komponen | Biaya |
-|---|---|
-| AI (tiered; DeepSeek/Gemini primary, fast-path memotong) | ~Rp 5–9rb |
-| Server (VPS shared, ter-amortisasi saat skala) | ~Rp 2–5rb |
-| **Total COGS** | **~Rp 11–15rb** |
-| Harga | Rp 29rb |
-| **Margin kotor** | **~Rp 15–18rb (50–62%)** |
+| Durasi | Harga | Per bulan efektif |
+|---|---|---|
+| 30 hari | **Rp 14.900** | Rp 14.900 |
+| 3 bulan | Rp 39.000 | Rp 13.000 |
+| 6 bulan | Rp 69.000 | Rp 11.500 |
+| 1 tahun | **Rp 89.000** | Rp 7.417 |
 
-⚠️ **Risiko:** agen super-aktif (300+ trx/hari) + banyak foto (vision lebih mahal) → COGS naik. Mitigasi: fast-path, cache, batas wajar, monitoring.
+> **Catatan strategi (sadar & disengaja):** harga tahunan Rp89rb ≈ −50% dari 30-harian. Ini **land-grab disengaja** — kunci pelanggan lama + cash upfront di fase awal. Margin add-on tahunan tipis, diterima demi akuisisi.
+>
+> **"Unlimited" ditanggung** karena ML Kit menyerap mayoritas beban. Worst-case realistis (power-user 50 foto/hari, ML Kit sukses ~85% → ~210 AI-vision/bln) COGS ~Rp5rb < harga add-on. Rem anti-abuse pada angka ekstrem gak-manusiawi (>1.500 AI-vision/bln = bot) — di bawah itu unlimited beneran.
 
-### 9.3 Break-even & TAM
+### 9.4 Ekonomi unit (per agen/bln, tier Agen — data pricing nyata)
+Basis: DeepSeek Chat $0.14 in / $0.28 out per 1M token; Gemini 2.5 Flash-Lite $0.10/$0.40; kurs ~Rp16.500. ~2 pesan/transaksi, ~550 token/pesan.
+
+| Komponen | Biaya | Catatan |
+|---|---|---|
+| Chat AI (DeepSeek primary, ~Rp1,6/pesan) | ~Rp 5–9rb | 100 trx/hari; fast-path + cache memotong |
+| AI-vision (30 scan × ~Rp25) | ~Rp 0,5–1rb | dijatah, jadi terkendali |
+| Server (VPS shared, ter-amortisasi) | ~Rp 2–5rb | membaik saat skala |
+| **Total COGS** | **~Rp 8–15rb** | |
+| Harga | Rp 29rb | |
+| **Margin kotor** | **~Rp 14–21rb (48–72%)** | |
+
+### 9.5 Busur ARPU
+| Profil | Langganan | ARPU/bln |
+|---|---|---|
+| Agen solo ringan | Agen | Rp 29rb |
+| Agen aktif + add-on vision | Agen + add-on | ~Rp 44rb |
+| Agen super-aktif | Agen Pro | Rp 69rb |
+| Owner 3 cabang | Owner | Rp 149rb |
+| Owner 5 cabang | Owner + 2 cabang | Rp 227rb |
+| Agen + toko (kasir visual) | Agen + Kasir Visual | **Rp 108rb** |
+
+### 9.6 Benchmark harga (data nyata — kita kompetitif)
+| Produk | Harga | Catatan |
+|---|---|---|
+| Kompetitor agen (Kasiragen/Fioriz/eLink) | ❌ disembunyikan | Kita transparan = diferensiasi kepercayaan |
+| Kasir Pintar Pro | Rp 55.500/bln | Butuh barcode; kita tanpa barcode |
+| Moka POS | Rp 299.000/bln/outlet | Kasir visual kita Rp79rb jauh lebih murah |
+| Olsera | ~Rp 107.000/bln (tahunan) | — |
+
+### 9.7 Break-even & TAM
 - Break-even ops ≈ **100–200 agen bayar**.
-- 1.000 agen × Rp 15rb margin = Rp 15jt/bln kotor.
-- TAM: ratusan ribu agen BRILink → ambil irisan kecil sudah bisnis nyata.
+- 1.000 agen × ~Rp 17rb margin = ~Rp 17jt/bln kotor.
+- TAM: ratusan ribu agen BRILink → irisan kecil sudah bisnis nyata.
 
-### 9.4 Akuisisi
+### 9.8 Akuisisi
 1. **Hook anti-tipu** — konten "cara agen gak ketipu 12jt" → free trial.
 2. **Word-of-mouth** komunitas agen — "segampang ATM" mudah direkomendasi.
 3. **Trial 14 hari tanpa friksi** — nilai tutup-buku & anti-tipu kerasa <1 minggu.
+4. **Add-on murah familiar** (Rp14.900 = fee trf BT) — konversi rendah-friksi.
 
 **Ditolak:** komisi PPOB/switching biller (kontradiksi "app pencatatan"), iklan (rusak kepercayaan).
 
@@ -334,8 +379,8 @@ flowchart TB
     end
 
     subgraph AI[🤖 AI PROVIDERS]
-      DS[DeepSeek]:::t1
-      GM[Gemini Flash]:::t1
+      DS[DeepSeek Chat]:::t1
+      GM[Gemini Flash-Lite]:::t1
       CL[Claude Sonnet]:::t2
       OA[OpenAI GPT-4o]:::t2
     end
@@ -369,8 +414,9 @@ flowchart TB
 | **OCR / kasir visual** | ML Kit (OCR + image embedding), TFLite | On-device, offline, gratis; matching produk |
 | **Backend** | FastAPI + SQLAlchemy async + Alembic | Async, sudah ada, 189 test |
 | **Database** | PostgreSQL | Transaksi kuat, sudah dipakai |
-| **AI Tier 1 (murah)** | DeepSeek, Gemini 2.5 Flash | Parsing JSON cukup, biaya rendah |
-| **AI Tier 2 (pinter)** | Claude Sonnet, OpenAI GPT-4o | Kasus sulit + vision (struk, kasir) |
+| **AI Tier 1 (murah)** | DeepSeek Chat ($0.14/$0.28 per 1M), Gemini 2.5 Flash-Lite ($0.10/$0.40) | Parsing JSON teks, biaya rendah |
+| **AI Tier 2 (pinter)** | Claude Sonnet, OpenAI GPT-4o (~$3/$10–15 per 1M) | Kasus sulit + vision-AI (struk watermark, kasir) |
+| **OCR utama** | ML Kit on-device (gratis) | Nyerap mayoritas struk; AI-vision hanya untuk yang gagal |
 | **Auth** | JWT (claim is_admin) | Sudah ada |
 | **OTP/SMS** | SMS Gateway (Fase 2), OTP `secrets` | Onboarding user asli |
 | **Deploy** | Docker Compose + nginx + VPS + CI | Belum ada — prasyarat jual |
@@ -394,7 +440,8 @@ flowchart TB
 ├──────────────────────────────────────────────────────────────────────┤
 │ FASE 1 — MVP Jual (agen solo)                                        │
 │   Chat AI natural · Anti-tipu L1+L2 · Otak proaktif (4 momen)        │
-│   SaaS Rp 29rb + trial 14 hari · Deploy nyata · SMS gateway · CI     │
+│   OCR on-device + AI-vision fallback · Cetak struk thermal 58mm      │
+│   Tier Agen/Pro + add-on vision · trial 14 hari · Deploy · SMS · CI  │
 ├──────────────────────────────────────────────────────────────────────┤
 │ FASE 2 — Menang & Tumbuh                                             │
 │   Escalation by-difficulty full-tuning · OCR struk canggih          │
@@ -425,12 +472,14 @@ flowchart TB
 
 | Risiko | Dampak | Mitigasi |
 |---|---|---|
-| COGS AI membengkak (agen super-aktif) | Margin tergerus | Fast-path, cache, tiered, monitoring |
+| COGS AI-vision membengkak | Margin tergerus | ML Kit on-device nyerap mayoritas; AI-vision dijatah/add-on; rem anti-abuse >1.500/bln |
+| ML Kit gagal lebih sering dari dugaan | Kuota vision cepat habis | Ukur % kegagalan nyata pasca-launch; sesuaikan jatah 30/bln bila perlu |
 | Akurasi kasir visual rendah (barang mirip) | Fitur premium gagal | Top-3 confirm, eskalasi Tier 2, belajar dari koreksi |
 | Notif bank tak terbaca (format/OS) | Perisai lemah | Belajar format bertahap; jujur soal batas; tak pernah auto-hijau |
 | Kompetitor besar tiru chat AI | Moat menipis | Perdalam vertikal BRILink + anti-tipu + kasir visual (susah ditiru cepat) |
 | Provider AI naik harga / down | Biaya/uptime | 4-provider tiered failover |
 | Routing 2-dimensi sulit dikalibrasi | Salah tier | Tuning pasca-launch dengan data nyata |
+| Add-on tahunan Rp89rb margin tipis | Revenue/user rendah | Disengaja (land-grab); dievaluasi ulang setelah basis pelanggan terbentuk |
 
 ---
 
