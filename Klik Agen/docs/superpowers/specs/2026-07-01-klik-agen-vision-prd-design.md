@@ -279,10 +279,19 @@ Prinsip sama: **AI mempersempit, manusia konfirmasi** — konsisten dengan "konf
 ### 9.1 Filosofi harga — batasi yang mahal, gratiskan yang murah
 Biaya AI **tidak seragam**. Chat teks nyaris gratis; OCR vision-AI ~10–25× lebih mahal per panggilan. Maka:
 - **Chat teks = UNLIMITED semua tier** (murah, memperkuat "segampang ATM").
-- **OCR on-device (ML Kit) = UNLIMITED semua tier** (jalan di HP agen, Rp0 ke server; sudah akurat untuk BRI, BCA lama/baru, bank digital minim watermark).
+- **OCR on-device (ML Kit) = UNLIMITED semua tier** (jalan di HP agen, Rp0 ke server; sudah akurat untuk BRI, BCA lama/baru, bank digital minim watermark — terbukti puluhan tes lapangan).
 - **AI-vision (struk sulit banyak-watermark) = SATU-SATUNYA yang dibatasi/dijatah** — inilah biaya nyata.
 
 Kunci: mayoritas customer pakai bank digital (tanpa watermark) → ditangani ML Kit → gratis. AI-vision hanya nyala untuk minoritas struk sulit yang ML Kit meleset. Volume nyata AI-vision rendah → COGS aman.
+
+**Alur OCR dua-pintu (user pegang kendali, tak ada AI jalan diam-diam):**
+```
+Foto struk → [Pintu 1] ML Kit on-device (GRATIS) → hasil tampil
+   ├─ benar               → catat ✅ (Rp0)
+   ├─ meleset sedikit     → user EDIT MANUAL di tempat ✅ (Rp0)
+   └─ kacau (watermark)   → user tap [🔄 Scan ulang AI] → [Pintu 2] AI-vision (kena kuota)
+```
+AI-vision hanya jalan bila **user sendiri memintanya** (manual). Tidak ada auto-trigger — hemat kuota + user yang menentukan, konsisten "konfirmasi bukan tebak". Edit manual menyerap kasus meleset-ringan tanpa menyentuh AI sama sekali.
 
 ### 9.2 Paket (busur pertumbuhan)
 | Tahap | Paket | Harga/bln | Isi |
