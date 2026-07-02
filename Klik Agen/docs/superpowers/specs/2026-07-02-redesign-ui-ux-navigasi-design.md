@@ -93,7 +93,16 @@ Ganti ke vektor (`Icons.*` Material atau asset), touch ≥48dp:
 | AkunScreen menu | `✏🏦📋🔒❓` + `›` chevron | `Icons` (Edit/AccountBalance/List/Lock/Help + `ChevronRight`) — import sudah ada, tinggal dipakai |
 | FeeTierScreen empty | `📊` | `Icons.Filled.BarChart` |
 
-### 4.4 Konsistensi Material 3
+### 4.4 Launcher icon (app icon) — rebrand ke emerald
+**Masalah:** `ic_launcher_background.xml` sekarang `#2563EB` (biru) — tak match brand emerald app. Foreground cuma ring lingkaran generik (placeholder tanpa identitas). Inilah "icon jelek & gak sesuai warna" yang terlihat di homescreen.
+
+**Perbaikan (full vector, tanpa aset raster):**
+- **Background** `ic_launcher_background.xml`: ganti `#2563EB` → emerald `#0E9F6E` (`Pri`). Boleh gradient halus ke `#057A52` (`PriDark`) untuk kedalaman.
+- **Foreground** `ic_launcher_foreground.xml`: ganti ring generik → monogram **"KA"** putih (konsisten dg avatar chat in-app). Pakai path teks/vektor, hormati safe zone adaptive-icon (foreground efektif ~66dp di tengah kanvas 108dp).
+- Pertahankan struktur adaptive-icon (`mipmap-anydpi-v26/ic_launcher.xml`) — cukup ubah kedua drawable.
+- Verifikasi tampil benar di launcher (bulat, rounded-square, squircle) — safe zone dijaga.
+
+### 4.5 Konsistensi Material 3
 - ArusKasScreen: `androidx.compose.material.pullrefresh` (M2) → **M3 `PullToRefreshBox`**.
 - Semua back icon → `Icons.AutoMirrored.Filled.ArrowBack` (FeeTier/Kelola/Register masih pakai versi lama/teks).
 - Top bar layar sekunder → pola `TopAppBar` M3 seragam (ArusKas & Kelola sekarang manual, padding `4.dp` bikin back mepet).
@@ -201,6 +210,7 @@ Konsolidasi yang menyentuh banyak layar, dilakukan saat menyentuh layar terkait:
 1. Bottom-nav hilang; chat full-screen jadi home; top bar chip-saldo + Rekap + ⚙ berfungsi 1-tap.
 2. Back dari layar sekunder pop ke chat; share-foto auto-pop ke chat.
 3. Nol emoji-as-icon; nol referensi palet lama; satu `formatRupiah`.
+3b. Launcher icon = monogram KA di atas emerald (bukan biru); tampil benar di semua bentuk mask launcher.
 4. Empty-state chat tampil saat riwayat kosong: sambutan AI (statis, maks 2 kalimat) + 3 contoh sekali-ketuk. Dialog Bantuan di Setelan diperkaya (on-demand).
 5. `ConfirmationCard`→`ReceiptCard`; `ConfirmCard` placeholder tersedia (tak aktif).
 6. Dead code AkunScreen terhapus; silent catch di-surface.
