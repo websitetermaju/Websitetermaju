@@ -111,12 +111,22 @@ Ganti ke vektor (`Icons.*` Material atau asset), touch ≥48dp:
 5. **Quick-action pills** — pertahankan.
 6. **Input bar** — pertahankan; tambah state error retry.
 
-**Empty-state / first-run (WAJIB — zero-belajar):**
-Saat riwayat chat kosong, tampilkan sapaan + **contoh hidup sekali-ketuk**:
-> "Halo kak! 👋 Catat transaksi cukup ngobrol. Coba ketuk salah satu:"
+**Empty-state / first-run + chat pengenalan AI (WAJIB — zero-belajar):**
+
+Bukan tutorial berlangkah (PRD Prinsip #1 tolak "butuh-diajarin"). Sebagai gantinya, **AI menyapa duluan** — terasa natural, "segampang ATM", bukan onboarding formal.
+
+Saat riwayat chat kosong (first-run atau belum ada pesan), tampilkan **satu pesan sambutan dari "Klik Agen"** sebagai `BotBubble` biasa (bukan overlay/slide), diikuti contoh sekali-ketuk:
+> **Klik Agen:** "Halo kak! 👋 Aku Klik Agen. Catat transaksi cukup ngobrol kayak WhatsApp — gak perlu isi form. Coba ketuk salah satu ini, atau kirim foto struk:"
 > `[Transfer 300rb fee 5rb]` `[Tarik tunai 500rb]` `[Rekap hari ini]`
 
-Bukan tutorial — contoh yang langsung jalan. Ketuk → isi input → kirim.
+Aturan (jaga zero-belajar, jangan bertele):
+- Sambutan **maksimal 2 kalimat** + baris contoh. Tidak ada "Lanjut → Lanjut → Selesai".
+- Muncul **hanya saat chat kosong**; begitu agen kirim pesan pertama, sambutan tak menghalangi (jadi bagian riwayat biasa).
+- Contoh = pill sekali-ketuk yang **langsung jalan** (ketuk → isi input → kirim), bukan teks mati. Belajar sambil pakai.
+- Sumber teks sambutan: **lokal/statis di UI** (bukan panggilan AI backend) — hemat, instan, tak butuh perubahan backend. Konsisten dengan Non-Tujuan (tanpa backend).
+
+**Bantuan on-demand (selaras, bukan paksaan):**
+Perkaya dialog **Bantuan** yang sudah ada di Setelan (kode: `showHelp` di AkunScreen) — isi contoh chat, cara kirim/koreksi foto struk, cara cetak struk, FAQ singkat. Muncul **hanya bila agen membuka sendiri**. Ini pelengkap, bukan gerbang.
 
 **Kartu:**
 - `ReceiptCard` (rename `ConfirmationCard`, L375) — post-save "Transaksi tercatat ✓". Tak berubah fungsi.
@@ -166,7 +176,8 @@ Konsolidasi yang menyentuh banyak layar, dilakukan saat menyentuh layar terkait:
 
 | Skenario | Behavior UI |
 |---|---|
-| Chat kosong / first-run | Empty-state: sapaan + 3 contoh sekali-ketuk. |
+| Chat kosong / first-run | Sambutan AI (maks 2 kalimat, statis lokal) + 3 contoh sekali-ketuk. Bukan walkthrough. |
+| Agen buka Bantuan sendiri | Dialog Bantuan diperkaya: contoh chat, cara foto struk, cara cetak, FAQ. On-demand. |
 | Offline | Banner abu (sudah ada), pertahankan; ikut aturan stacking §5.2. |
 | Stale pending (2 hari) | Banner merah (sudah ada); prioritas > degraded. |
 | AI degraded / guided mode | Banner kuning; pastikan `ConfirmCard`/kartu tetap bisa render (bukan cuma teks). |
@@ -190,7 +201,7 @@ Konsolidasi yang menyentuh banyak layar, dilakukan saat menyentuh layar terkait:
 1. Bottom-nav hilang; chat full-screen jadi home; top bar chip-saldo + Rekap + ⚙ berfungsi 1-tap.
 2. Back dari layar sekunder pop ke chat; share-foto auto-pop ke chat.
 3. Nol emoji-as-icon; nol referensi palet lama; satu `formatRupiah`.
-4. Empty-state chat tampil saat riwayat kosong.
+4. Empty-state chat tampil saat riwayat kosong: sambutan AI (statis, maks 2 kalimat) + 3 contoh sekali-ketuk. Dialog Bantuan di Setelan diperkaya (on-demand).
 5. `ConfirmationCard`→`ReceiptCard`; `ConfirmCard` placeholder tersedia (tak aktif).
 6. Dead code AkunScreen terhapus; silent catch di-surface.
 7. Aturan stacking banner diterapkan.
