@@ -22,7 +22,19 @@ const faqs = [
   },
   {
     q: "Bisa bayar dengan cara apa saja?",
-    a: "Kami menerima transfer bank (BCA, BRI, Mandiri, dll), e-wallet (GoPay, OVO, Dana), dan QRIS. Pembayaran bisa dicicil 2x untuk paket di atas Rp 1 juta.",
+    a: "Kami menerima transfer bank (BCA, BRI, Mandiri, BNI, dll), e-wallet (GoPay, OVO, Dana), dan QRIS. Pembayaran bisa dicicil 2x untuk paket di atas Rp 1 juta.",
+  },
+  {
+    q: "Apakah website saya akan muncul di Google?",
+    a: "Semua paket sudah dilengkapi SEO dasar: title tag, meta description, sitemap, dan struktur yang Google suka. Artinya website kamu sudah siap diindeks. Untuk muncul di halaman pertama, butuh waktu dan konten yang relevan — kami bantu arahkan caranya.",
+  },
+  {
+    q: "Saya butuh cepat, bisa dipercepat?",
+    a: "Bisa! Untuk keperluan mendesak seperti event atau promosi, proses bisa dipercepat jika konten kamu sudah siap. Hubungi kami lewat WhatsApp dan ceritakan deadline kamu — kami cari solusinya bersama.",
+  },
+  {
+    q: "Apakah ada garansi kalau tidak puas?",
+    a: "Ada. Kami memberikan garansi 30 hari uang kembali. Jika dalam 30 hari website belum selesai atau kamu tidak puas, uang dikembalikan 100% tanpa potongan.",
   },
 ];
 ---
@@ -41,7 +53,9 @@ const faqs = [
         <details class="reveal group bg-white rounded-xl border border-gray-100 overflow-hidden" style={`transition-delay: ${i * 50}ms`}>
           <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer text-base font-semibold hover:text-primary transition-colors list-none [&::-webkit-details-marker]:hidden">
             {faq.q}
-            <svg class="w-5 h-5 text-muted flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="w-5 h-5 text-muted flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
           </summary>
           <div class="px-6 pb-5 text-sm text-muted leading-relaxed">
             {faq.a}

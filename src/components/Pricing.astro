@@ -3,7 +3,10 @@ const plans = [
   {
     name: "Landing Page",
     price: "750",
+    priceOri: "1.200",
     unit: "rb",
+    unitOri: "rb",
+    savings: "38%",
     desc: "Cocok untuk promosi produk atau jasa",
     features: [
       "1 halaman responsif",
@@ -19,7 +22,10 @@ const plans = [
   {
     name: "Bisnis",
     price: "1,5",
+    priceOri: "2,5",
     unit: "jt",
+    unitOri: "jt",
+    savings: "40%",
     desc: "Paling populer untuk UMKM & bisnis kecil",
     badge: "Paling Laris",
     features: [
@@ -37,7 +43,10 @@ const plans = [
   {
     name: "Toko Online",
     price: "3,5",
+    priceOri: "6",
     unit: "jt",
+    unitOri: "jt",
+    savings: "42%",
     desc: "Untuk jualan online dengan katalog produk",
     features: [
       "Katalog produk unlimited",
@@ -50,6 +59,17 @@ const plans = [
     featured: false,
     waMsg: "Halo, saya tertarik Paket Toko Online. Boleh tanya-tanya dulu?",
   },
+];
+
+const paymentMethods = [
+  { label: "BCA", color: "#003D82" },
+  { label: "BRI", color: "#004B87" },
+  { label: "Mandiri", color: "#003F6B" },
+  { label: "BNI", color: "#F15A22" },
+  { label: "GoPay", color: "#00AED6" },
+  { label: "OVO", color: "#4C3494" },
+  { label: "DANA", color: "#118EEA" },
+  { label: "QRIS", color: "#E63239" },
 ];
 ---
 
@@ -67,7 +87,10 @@ const plans = [
 
     <div class="grid md:grid-cols-3 gap-6 items-start">
       {plans.map((plan, i) => (
-        <div class={`reveal relative bg-white rounded-2xl p-8 border-2 transition-all duration-300 hover:shadow-xl ${plan.featured ? 'border-primary shadow-lg shadow-primary/10 scale-[1.02]' : 'border-gray-100 hover:border-gray-200'}`} style={`transition-delay: ${i * 100}ms`}>
+        <div
+          class={`reveal relative bg-white rounded-2xl p-8 border-2 transition-all duration-300 hover:shadow-xl ${plan.featured ? 'border-primary shadow-lg shadow-primary/10 scale-[1.02]' : 'border-gray-100 hover:border-gray-200'}`}
+          style={`transition-delay: ${i * 100}ms`}
+        >
           {plan.badge && (
             <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accent text-dark text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-sm">
               {plan.badge}
@@ -77,15 +100,25 @@ const plans = [
           <h3 class="text-xl font-bold">{plan.name}</h3>
           <p class="text-sm text-muted mt-1 mb-4">{plan.desc}</p>
 
-          <div class="mb-6">
+          <div class="mb-1">
             <span class="text-4xl font-extrabold tracking-tight text-dark">Rp {plan.price}</span>
             <span class="text-lg font-semibold text-muted">{plan.unit}</span>
+          </div>
+
+          <!-- Strikethrough original price + savings badge -->
+          <div class="flex items-center gap-2 mb-6">
+            <span class="text-sm text-muted line-through">Rp {plan.priceOri}{plan.unitOri}</span>
+            <span class="text-xs font-bold bg-accent/20 text-accent-dark px-2 py-0.5 rounded-full">
+              Hemat {plan.savings}
+            </span>
           </div>
 
           <ul class="space-y-3 mb-8">
             {plan.features.map((f) => (
               <li class="flex items-start gap-2.5 text-sm">
-                <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
                 <span class="text-muted">{f}</span>
               </li>
             ))}
@@ -106,5 +139,23 @@ const plans = [
     <p class="reveal text-center text-muted mt-8 text-sm">
       Harga bisa disesuaikan kebutuhan. Chat aja dulu, gratis kok.
     </p>
+
+    <!-- Payment methods -->
+    <div class="reveal mt-10 border border-gray-100 rounded-2xl bg-white px-8 py-6">
+      <p class="text-center text-sm text-muted font-medium mb-5">Metode pembayaran yang kami terima</p>
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        {paymentMethods.map((pm) => (
+          <span
+            class="inline-flex items-center px-3.5 py-1.5 rounded-lg text-white text-xs font-bold tracking-wide shadow-sm"
+            style={`background-color: ${pm.color};`}
+          >
+            {pm.label}
+          </span>
+        ))}
+      </div>
+      <p class="text-center text-xs text-muted mt-4">
+        Paket di atas Rp 1 juta bisa dicicil 2×. Hubungi kami untuk info lebih lanjut.
+      </p>
+    </div>
   </div>
 </section>

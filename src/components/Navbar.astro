@@ -8,17 +8,27 @@ const navLinks = [
 const waLink = "https://wa.me/628159203331?text=Halo%2C%20saya%20mau%20tanya%20soal%20jasa%20pembuatan%20website.";
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100 transition-shadow duration-200"
+>
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <a href="#" class="flex items-center gap-1.5 text-lg font-extrabold tracking-tight text-dark no-underline">
+      <a
+        href="#"
+        class="flex items-center gap-1.5 text-lg font-extrabold tracking-tight text-dark no-underline"
+        aria-label="Websitetermaju — kembali ke atas"
+      >
         websitetermaju
-        <span class="text-primary">✦</span>
+        <span class="text-primary" aria-hidden="true">✦</span>
       </a>
 
       <div class="hidden md:flex items-center gap-8">
         {navLinks.map((link) => (
-          <a href={link.href} class="text-sm font-medium text-muted hover:text-dark transition-colors no-underline">
+          <a
+            href={link.href}
+            class="text-sm font-medium text-muted hover:text-dark transition-colors duration-150 no-underline"
+          >
             {link.label}
           </a>
         ))}
@@ -26,7 +36,7 @@ const waLink = "https://wa.me/628159203331?text=Halo%2C%20saya%20mau%20tanya%20s
           href={waLink}
           target="_blank"
           rel="noopener"
-          class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-dark transition-colors no-underline"
+          class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-dark transition-colors duration-150 no-underline"
         >
           Hubungi Kami
         </a>
@@ -34,21 +44,25 @@ const waLink = "https://wa.me/628159203331?text=Halo%2C%20saya%20mau%20tanya%20s
 
       <button
         id="mobile-menu-btn"
-        class="md:hidden p-2 text-dark"
-        aria-label="Buka menu"
+        class="md:hidden p-2 text-dark rounded-md hover:bg-gray-100 transition-colors duration-150"
+        aria-label="Buka menu navigasi"
         aria-expanded="false"
+        aria-controls="mobile-menu"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
   </div>
 
-  <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white" role="dialog" aria-label="Menu navigasi mobile">
     <div class="px-4 py-4 space-y-3">
       {navLinks.map((link) => (
-        <a href={link.href} class="block text-sm font-medium text-muted hover:text-dark transition-colors no-underline mobile-nav-link">
+        <a
+          href={link.href}
+          class="block text-sm font-medium text-muted hover:text-dark transition-colors duration-150 no-underline mobile-nav-link py-1"
+        >
           {link.label}
         </a>
       ))}
@@ -56,7 +70,7 @@ const waLink = "https://wa.me/628159203331?text=Halo%2C%20saya%20mau%20tanya%20s
         href={waLink}
         target="_blank"
         rel="noopener"
-        class="block text-center px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-dark transition-colors no-underline mt-2"
+        class="block text-center px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-dark transition-colors duration-150 no-underline mt-2"
       >
         Hubungi Kami
       </a>
@@ -65,6 +79,7 @@ const waLink = "https://wa.me/628159203331?text=Halo%2C%20saya%20mau%20tanya%20s
 </nav>
 
 <script>
+  // Toggle mobile menu
   const btn = document.getElementById("mobile-menu-btn");
   const menu = document.getElementById("mobile-menu");
   const icon = document.getElementById("menu-icon");
@@ -84,4 +99,15 @@ const waLink = "https://wa.me/628159203331?text=Halo%2C%20saya%20mau%20tanya%20s
       if (icon) icon.setAttribute("d", "M4 6h16M4 12h16M4 18h16");
     });
   });
+
+  // Add shadow on scroll (elevation signal)
+  const navbar = document.getElementById("navbar");
+  const onScroll = () => {
+    if (window.scrollY > 8) {
+      navbar?.classList.add("shadow-sm");
+    } else {
+      navbar?.classList.remove("shadow-sm");
+    }
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
 </script>

@@ -1,0 +1,101 @@
+---
+const rows = [
+  {
+    aspect: "Waktu jadi",
+    us: "5–14 hari kerja",
+    diy: "3+ bulan",
+    other: "2–8 minggu",
+    usWin: true,
+  },
+  {
+    aspect: "Biaya total",
+    us: "Rp 750rb – 3,5jt",
+    diy: "Rp 2jt+ (tools, hosting, domain)",
+    other: "Rp 5jt+",
+    usWin: true,
+  },
+  {
+    aspect: "Revisi sampai puas",
+    us: "✅ Iya",
+    diy: "❌ Kamu sendiri",
+    other: "❓ Tergantung",
+    usWin: true,
+  },
+  {
+    aspect: "Domain gratis 1 tahun",
+    us: "✅ Iya",
+    diy: "❌ Bayar sendiri",
+    other: "❓ Jarang",
+    usWin: true,
+  },
+  {
+    aspect: "SEO dasar terpasang",
+    us: "✅ Semua paket",
+    diy: "❓ Harus belajar dulu",
+    other: "❓ Tidak selalu",
+    usWin: true,
+  },
+  {
+    aspect: "Garansi uang kembali",
+    us: "✅ 30 hari",
+    diy: "—",
+    other: "❌ Hampir tidak ada",
+    usWin: true,
+  },
+  {
+    aspect: "Support after launch",
+    us: "✅ 30 hari gratis",
+    diy: "❌ Sendiri",
+    other: "❓ Berbayar",
+    usWin: true,
+  },
+];
+---
+
+<section class="py-20 sm:py-24 px-4 bg-light">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="reveal inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-3">Perbandingan</span>
+      <h2 class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight">
+        Kenapa bukan bikin sendiri<br />atau jasa lain?
+      </h2>
+      <p class="reveal text-muted mt-4 text-lg max-w-xl mx-auto">
+        Faktanya, banyak UMKM yang coba bikin sendiri — lalu balik lagi ke kami 3 bulan kemudian.
+      </p>
+    </div>
+
+    <div class="reveal overflow-x-auto rounded-2xl border border-gray-100 shadow-sm bg-white">
+      <table class="w-full min-w-[600px] text-sm">
+        <thead>
+          <tr class="border-b border-gray-100">
+            <th class="px-6 py-4 text-left text-muted font-semibold w-48">Aspek</th>
+            <th class="px-6 py-4 text-center font-bold text-primary bg-primary/5 border-x border-primary/10">
+              <div class="flex flex-col items-center gap-1">
+                <span class="text-xs uppercase tracking-wider font-semibold text-primary/70">Pilihan terbaik</span>
+                Websitetermaju
+              </div>
+            </th>
+            <th class="px-6 py-4 text-center text-muted font-semibold">Bikin Sendiri</th>
+            <th class="px-6 py-4 text-center text-muted font-semibold">Jasa Lain</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr class={`border-b border-gray-50 last:border-0 ${i % 2 === 0 ? '' : 'bg-gray-50/50'}`}>
+              <td class="px-6 py-4 font-medium text-dark">{r.aspect}</td>
+              <td class="px-6 py-4 text-center font-semibold text-primary bg-primary/5 border-x border-primary/10">
+                {r.us}
+              </td>
+              <td class="px-6 py-4 text-center text-muted">{r.diy}</td>
+              <td class="px-6 py-4 text-center text-muted">{r.other}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="reveal text-center text-muted text-sm mt-6">
+      Masih ragu? Konsultasi gratis dulu — kamu yang tentukan setelah ngobrol.
+    </p>
+  </div>
+</section>

@@ -35,6 +35,23 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
+
+  /* Keyboard focus: visible ring for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Pointer cursor on all interactive non-anchor elements */
+  button {
+    cursor: pointer;
+  }
+
+  /* Eliminate 300ms tap delay on mobile */
+  a, button, [role="button"] {
+    touch-action: manipulation;
+  }
 }
 
 /* Signature: hand-drawn marigold underline on hero keyword — personal, UMKM-craft feel */
