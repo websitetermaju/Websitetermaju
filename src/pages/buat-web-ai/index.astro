@@ -1,0 +1,1199 @@
+---
+import "../../styles/global.css";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout 
+  title="Buat Web AI Gratis untuk UMKM — websitetermaju" 
+  description="Generator website bertenaga AI gratis khusus untuk pelaku UMKM dan bisnis kecil Indonesia. Desain profesional, instan, dan siap pakai."
+>
+  <!-- Builder Header -->
+  <header class="bg-slate-900 border-b border-slate-800 text-white py-3 px-4 sm:px-6 flex items-center justify-between sticky top-0 z-40">
+    <div class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-1.5 text-base font-extrabold tracking-tight text-white no-underline">
+        websitetermaju
+        <span class="text-primary-light">✦</span>
+      </a>
+      <span class="h-4 w-px bg-slate-800 hidden sm:inline"></span>
+      <span class="text-xs bg-primary/20 text-primary-light border border-primary/30 px-2.5 py-0.5 rounded-full font-semibold hidden sm:inline-block">
+        AI Website Builder untuk UMKM
+      </span>
+    </div>
+    
+    <div class="flex items-center gap-3">
+      <a href="/" class="text-xs sm:text-sm text-slate-400 hover:text-white transition-colors no-underline flex items-center gap-1">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Kembali ke Beranda
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="grid grid-cols-1 lg:grid-cols-12 bg-slate-950 text-slate-100 min-h-[calc(100vh-3.25rem)] overflow-hidden">
+    
+    <!-- LEFT PANEL: Editor & Controls (Grid: 5 cols) -->
+    <section class="lg:col-span-5 border-r border-slate-800 flex flex-col h-[calc(100vh-3.25rem)] overflow-y-auto">
+      
+      <!-- Tabs Navigation -->
+      <div class="flex border-b border-slate-800 sticky top-0 bg-slate-950 z-10">
+        <button id="tab-btn-profil" class="flex-1 py-3 text-center text-xs font-semibold border-b-2 border-primary-light text-primary-light transition-all focus:outline-none">
+          1. Profil & Niche
+        </button>
+        <button id="tab-btn-konten" class="flex-1 py-3 text-center text-xs font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition-all focus:outline-none">
+          2. Isi Konten
+        </button>
+        <button id="tab-btn-desain" class="flex-1 py-3 text-center text-xs font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition-all focus:outline-none">
+          3. Desain & Publish
+        </button>
+      </div>
+
+      <!-- Tab Content Area -->
+      <div class="p-5 sm:p-6 space-y-6 flex-1">
+        
+        <!-- ================= TAB 1: PROFIL & NICHE ================= -->
+        <div id="tab-content-profil" class="space-y-5">
+          <div>
+            <h3 class="text-sm font-bold text-slate-300 mb-1 uppercase tracking-wider">Identitas Usaha</h3>
+            <p class="text-xs text-slate-500">Tentukan nama bisnis dan bidang usaha Anda.</p>
+          </div>
+
+          <!-- Niche Selection Cards -->
+          <div class="space-y-2">
+            <label class="block text-xs font-semibold text-slate-300">Pilih Bidang Bisnis (Niche)</label>
+            <div class="grid grid-cols-2 gap-2" id="niche-selector">
+              <button data-niche="kuliner" class="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 text-left text-xs transition-all flex items-center gap-2 select-niche-btn border-primary-light bg-slate-900">
+                <span class="text-lg">🍔</span>
+                <div>
+                  <div class="font-semibold text-slate-200">Kuliner</div>
+                  <div class="text-[0.65rem] text-slate-500">Resto, Kafe, Katering</div>
+                </div>
+              </button>
+              <button data-niche="jasa" class="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 text-left text-xs transition-all flex items-center gap-2 select-niche-btn">
+                <span class="text-lg">🛠️</span>
+                <div>
+                  <div class="font-semibold text-slate-200">Jasa</div>
+                  <div class="text-[0.65rem] text-slate-500">AC, Laundry, Clean</div>
+                </div>
+              </button>
+              <button data-niche="toko" class="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 text-left text-xs transition-all flex items-center gap-2 select-niche-btn">
+                <span class="text-lg">🛍️</span>
+                <div>
+                  <div class="font-semibold text-slate-200">Toko Online</div>
+                  <div class="text-[0.65rem] text-slate-500">Fashion, Sembako, Kue</div>
+                </div>
+              </button>
+              <button data-niche="salon" class="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 text-left text-xs transition-all flex items-center gap-2 select-niche-btn">
+                <span class="text-lg">✂️</span>
+                <div>
+                  <div class="font-semibold text-slate-200">Kecantikan</div>
+                  <div class="text-[0.65rem] text-slate-500">Barber, Salon, Spa</div>
+                </div>
+              </button>
+              <button data-niche="kesehatan" class="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 text-left text-xs transition-all flex items-center gap-2 select-niche-btn">
+                <span class="text-lg">🩺</span>
+                <div>
+                  <div class="font-semibold text-slate-200">Kesehatan</div>
+                  <div class="text-[0.65rem] text-slate-500">Klinik, Apotek, Terapi</div>
+                </div>
+              </button>
+              <button data-niche="bimbel" class="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 text-left text-xs transition-all flex items-center gap-2 select-niche-btn">
+                <span class="text-lg">✏️</span>
+                <div>
+                  <div class="font-semibold text-slate-200">Pendidikan</div>
+                  <div class="text-[0.65rem] text-slate-500">Les Privat, Bimbel</div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Basic Info inputs -->
+          <div class="space-y-4">
+            <div>
+              <label for="input-business-name" class="block text-xs font-semibold text-slate-300 mb-1.5">Nama Bisnis / Toko</label>
+              <input type="text" id="input-business-name" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-primary-light" value="Kopi Sedap Malam" placeholder="Contoh: Katering Bu Rina" />
+            </div>
+
+            <div>
+              <label for="input-whatsapp" class="block text-xs font-semibold text-slate-300 mb-1.5">Nomor WhatsApp Pembeli</label>
+              <div class="relative">
+                <span class="absolute left-3.5 top-2 text-slate-500 text-sm font-semibold">+62</span>
+                <input type="text" id="input-whatsapp" class="w-full bg-slate-900 border border-slate-800 rounded-lg pl-12 pr-3.5 py-2 text-sm text-white focus:outline-none focus:border-primary-light" value="8159203331" placeholder="8123456789" />
+              </div>
+              <p class="text-[0.65rem] text-slate-500 mt-1">Nomor ini akan dihubungkan ke tombol "Pesan via WhatsApp" di landing page.</p>
+            </div>
+          </div>
+
+          <!-- AI Generator Section -->
+          <div class="border border-slate-800 bg-slate-950 p-4 rounded-xl space-y-4 relative overflow-hidden mt-6">
+            <div class="absolute -right-8 -top-8 w-24 h-24 bg-primary/10 rounded-full blur-xl pointer-events-none"></div>
+            
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-base">✨</span>
+                <span class="text-xs font-bold text-slate-200 uppercase tracking-wider">AI Generator Content</span>
+              </div>
+              <!-- Gemini API Key Toggle -->
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="gemini-toggle" class="sr-only peer">
+                <div class="w-7 h-4 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-slate-400 after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary-light peer-checked:after:bg-slate-950"></div>
+                <span class="ml-1.5 text-[0.65rem] font-semibold text-slate-400 peer-checked:text-primary-light">Mode Gemini</span>
+              </label>
+            </div>
+
+            <!-- API Key input (hidden by default) -->
+            <div id="gemini-key-container" class="hidden space-y-2 border-t border-slate-900 pt-3">
+              <div class="flex items-center justify-between">
+                <label for="gemini-api-key" class="block text-[0.7rem] font-semibold text-slate-400">Kunci API Gemini (Gratis)</label>
+                <a href="https://aistudio.google.com/" target="_blank" class="text-[0.65rem] text-primary-light hover:underline flex items-center gap-0.5">
+                  Dapatkan API Key
+                  <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </div>
+              <input type="password" id="gemini-api-key" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-primary-light placeholder-slate-600" placeholder="AIzaSy..." />
+            </div>
+
+            <div>
+              <label for="input-description" class="block text-xs font-semibold text-slate-300 mb-1.5">Deskripsikan Usaha Anda</label>
+              <textarea id="input-description" rows="3" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3.5 py-2 text-xs text-white focus:outline-none focus:border-primary-light placeholder-slate-600" placeholder="Contoh: Kedai kopi lokal yang menyajikan biji kopi robusta berkualitas dengan menu andalan kopi susu gula aren dan pisang goreng hangat. Suasana santai cocok untuk mahasiswa nugas."
+              >Warung kopi khas Nusantara dengan biji pilihan, suasana nyaman cocok untuk nugas atau sekadar berkumpul.</textarea>
+            </div>
+
+            <button id="btn-generate" class="w-full py-2.5 bg-gradient-to-r from-primary to-primary-light text-slate-950 font-bold text-xs rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-1.5 shadow-md shadow-primary/10">
+              <svg class="w-4 h-4 animate-spin hidden" id="generate-spinner" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              <span id="generate-btn-text">Tulis & Susun Pakai AI ✨</span>
+            </button>
+            <div id="ai-status" class="text-[0.65rem] text-slate-400 text-center italic hidden">Menganalisis jenis bisnis dan merangkai halaman...</div>
+          </div>
+
+          <div class="pt-2">
+            <button id="next-to-tab2" class="w-full py-3 bg-slate-800 text-white hover:bg-slate-700 font-semibold text-xs rounded-lg transition-colors flex items-center justify-center gap-1">
+              Lanjut ke Isi Konten
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ================= TAB 2: ISI KONTEN ================= -->
+        <div id="tab-content-konten" class="space-y-6 hidden">
+          <div>
+            <h3 class="text-sm font-bold text-slate-300 mb-1 uppercase tracking-wider">Modifikasi Konten</h3>
+            <p class="text-xs text-slate-500">Sesuaikan teks detail di bawah untuk menyempurnakan landing page.</p>
+          </div>
+
+          <!-- Section: Hero Content -->
+          <div class="space-y-3 border-b border-slate-900 pb-5">
+            <span class="text-xs font-bold text-primary-light uppercase tracking-wide">1. Bagian Atas (Hero)</span>
+            <div>
+              <label for="input-slogan" class="block text-[0.7rem] font-semibold text-slate-400 mb-1">Tagline / Slogan</label>
+              <input type="text" id="input-slogan" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-primary-light" value="Ngopi Nikmat, Harga Sahabat" />
+            </div>
+            <div>
+              <label for="input-hero-desc" class="block text-[0.7rem] font-semibold text-slate-400 mb-1">Deskripsi Utama</label>
+              <textarea id="input-hero-desc" rows="3" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-primary-light"
+              >Nikmati seduhan kopi Nusantara otentik dengan suasana cozy. Tempat terbaik untuk bekerja, ngobrol santai, atau melepas penat dengan segelas kopi berkualitas tinggi.</textarea>
+            </div>
+          </div>
+
+          <!-- Section: Features (Selling Points) -->
+          <div class="space-y-4 border-b border-slate-900 pb-5">
+            <span class="text-xs font-bold text-primary-light uppercase tracking-wide">2. Keunggulan Kami (Kunci Layanan)</span>
+            
+            <div id="features-list-container" class="space-y-3">
+              <!-- Dynamically populated, template example: -->
+              <div class="bg-slate-900/30 border border-slate-900 p-3 rounded-lg space-y-2">
+                <span class="text-[0.65rem] font-bold text-slate-500">Keunggulan #1</span>
+                <input type="text" id="feature-title-0" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1 text-xs text-white" value="Biji Kopi Pilihan" />
+                <input type="text" id="feature-desc-0" class="w-full bg-slate-900 border border-slate-850 rounded px-2.5 py-1 text-[0.65rem] text-slate-400" value="100% Kopi Robusta & Arabika lokal berkualitas." />
+              </div>
+              <div class="bg-slate-900/30 border border-slate-900 p-3 rounded-lg space-y-2">
+                <span class="text-[0.65rem] font-bold text-slate-500">Keunggulan #2</span>
+                <input type="text" id="feature-title-1" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1 text-xs text-white" value="Tempat Nyaman" />
+                <input type="text" id="feature-desc-1" class="w-full bg-slate-900 border border-slate-850 rounded px-2.5 py-1 text-[0.65rem] text-slate-400" value="Dilengkapi WiFi kencang & colokan di setiap meja." />
+              </div>
+              <div class="bg-slate-900/30 border border-slate-900 p-3 rounded-lg space-y-2">
+                <span class="text-[0.65rem] font-bold text-slate-500">Keunggulan #3</span>
+                <input type="text" id="feature-title-2" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1 text-xs text-white" value="Harga Hemat" />
+                <input type="text" id="feature-desc-2" class="w-full bg-slate-900 border border-slate-850 rounded px-2.5 py-1 text-[0.65rem] text-slate-400" value="Mulai dari Rp 10.000 saja, pas di kantong mahasiswa." />
+              </div>
+            </div>
+          </div>
+
+          <!-- Section: Services/Products -->
+          <div class="space-y-4 border-b border-slate-900 pb-5">
+            <span class="text-xs font-bold text-primary-light uppercase tracking-wide">3. Produk / Layanan Utama</span>
+            
+            <div id="services-list-container" class="space-y-3">
+              <!-- Dynamically populated services go here -->
+              <div class="bg-slate-900/30 border border-slate-900 p-3 rounded-lg space-y-2">
+                <span class="text-[0.65rem] font-bold text-slate-500">Layanan #1</span>
+                <div class="flex gap-2">
+                  <input type="text" id="service-title-0" class="flex-1 bg-slate-900 border border-slate-800 rounded px-2.5 py-1 text-xs text-white" value="Espresso & Latte" />
+                  <input type="text" id="service-price-0" class="w-24 bg-slate-900 border border-slate-800 rounded px-2.5 py-1 text-xs text-primary-light font-bold" value="Rp 12.000" />
+                </div>
+                <input type="text" id="service-desc-0" class="w-full bg-slate-900 border border-slate-850 rounded px-2.5 py-1 text-[0.65rem] text-slate-400" value="Kopi espresso segar dengan susu gurih." />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-3 pt-2">
+            <button id="prev-to-tab1" class="flex-1 py-3 bg-slate-900 border border-slate-800 text-slate-300 hover:text-white font-semibold text-xs rounded-lg transition-colors flex items-center justify-center gap-1">
+              <svg class="w-4 h-4 animate-bounce-left" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              Kembali
+            </button>
+            <button id="next-to-tab3" class="flex-1 py-3 bg-slate-800 text-white hover:bg-slate-700 font-semibold text-xs rounded-lg transition-colors flex items-center justify-center gap-1">
+              Lanjut Desain & Publish
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ================= TAB 3: DESAIN & PUBLISH ================= -->
+        <div id="tab-content-desain" class="space-y-6 hidden">
+          <div>
+            <h3 class="text-sm font-bold text-slate-300 mb-1 uppercase tracking-wider">Desain & Export</h3>
+            <p class="text-xs text-slate-500">Sesuaikan tema warna dan simpan website UMKM Anda.</p>
+          </div>
+
+          <!-- Color Palette Picker -->
+          <div class="space-y-3 pb-2">
+            <label class="block text-xs font-semibold text-slate-300">Pilih Skema Warna</label>
+            <div class="grid grid-cols-1 gap-2.5" id="color-theme-picker">
+              
+              <button data-theme="emerald" class="w-full p-3 rounded-xl border border-slate-800 bg-slate-900/40 text-left hover:border-slate-700 transition-all flex items-center justify-between select-theme-btn border-primary-light">
+                <div class="flex items-center gap-2.5">
+                  <div class="flex gap-1">
+                    <span class="w-4 h-4 rounded-full bg-[#0E7C66]"></span>
+                    <span class="w-4 h-4 rounded-full bg-[#F2A93B]"></span>
+                    <span class="w-4 h-4 rounded-full bg-[#FBF9F5]"></span>
+                  </div>
+                  <div>
+                    <span class="text-xs font-bold text-slate-200 block">Pasar Pagi (Emerald)</span>
+                    <span class="text-[0.65rem] text-slate-500">Gaya sejuk, ramah, dan terpercaya.</span>
+                  </div>
+                </div>
+                <svg class="w-4 h-4 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </button>
+
+              <button data-theme="kopisusu" class="w-full p-3 rounded-xl border border-slate-800 bg-slate-900/40 text-left hover:border-slate-700 transition-all flex items-center justify-between select-theme-btn">
+                <div class="flex items-center gap-2.5">
+                  <div class="flex gap-1">
+                    <span class="w-4 h-4 rounded-full bg-[#78350F]"></span>
+                    <span class="w-4 h-4 rounded-full bg-[#F59E0B]"></span>
+                    <span class="w-4 h-4 rounded-full bg-[#FFFBEB]"></span>
+                  </div>
+                  <div>
+                    <span class="text-xs font-bold text-slate-200 block">Kopi Susu (Warm Coffee)</span>
+                    <span class="text-[0.65rem] text-slate-500">Hangat, homey, dan estetik klasik.</span>
+                  </div>
+                </div>
+                <svg class="w-4 h-4 text-primary-light hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </button>
+
+              <button data-theme="ocean" class="w-full p-3 rounded-xl border border-slate-800 bg-slate-900/40 text-left hover:border-slate-700 transition-all flex items-center justify-between select-theme-btn">
+                <div class="flex items-center gap-2.5">
+                  <div class="flex gap-1">
+                    <span class="w-4 h-4 rounded-full bg-[#0284C7]"></span>
+                    <span class="w-4 h-4 rounded-full bg-[#F43F5E]"></span>
+                    <span class="w-4 h-4 rounded-full bg-[#F0F9FF]"></span>
+                  </div>
+                  <div>
+                    <span class="text-xs font-bold text-slate-200 block">Ocean Blue (Ocean Trust)</span>
+                    <span class="text-[0.65rem] text-slate-500">Kepercayaan, profesional, dan segar.</span>
+                  </div>
+                </div>
+                <svg class="w-4 h-4 text-primary-light hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </button>
+
+              <button data-theme="sunset" class="w-full p-3 rounded-xl border border-slate-800 bg-slate-900/40 text-left hover:border-slate-700 transition-all flex items-center justify-between select-theme-btn">
+                <div class="flex items-center gap-2.5">
+                  <div class="flex gap-1">
+                    <span class="w-4 h-4 rounded-full bg-[#EA580C]"></span>
+                    <span class="w-4 h-4 rounded-full bg-[#10B981]"></span>
+                    <span class="w-4 h-4 rounded-full bg-[#FFF7ED]"></span>
+                  </div>
+                  <div>
+                    <span class="text-xs font-bold text-slate-200 block">Sunset Orange (Energi & Aksi)</span>
+                    <span class="text-[0.65rem] text-slate-500">Merangsang aksi, hangat, dan berani.</span>
+                  </div>
+                </div>
+                <svg class="w-4 h-4 text-primary-light hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </button>
+
+              <button data-theme="midnight" class="w-full p-3 rounded-xl border border-slate-800 bg-slate-900/40 text-left hover:border-slate-700 transition-all flex items-center justify-between select-theme-btn">
+                <div class="flex items-center gap-2.5">
+                  <div class="flex gap-1">
+                    <span class="w-4 h-4 rounded-full bg-[#8B5CF6]"></span>
+                    <span class="w-4 h-4 rounded-full bg-[#06B6D4]"></span>
+                    <span class="w-4 h-4 rounded-full bg-[#0F172A]"></span>
+                  </div>
+                  <div>
+                    <span class="text-xs font-bold text-slate-200 block">Midnight Dark (Modern Tech)</span>
+                    <span class="text-[0.65rem] text-slate-500">Premium, berkelas, bernuansa teknologi.</span>
+                  </div>
+                </div>
+                <svg class="w-4 h-4 text-primary-light hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- Actions / Exporter Block -->
+          <div class="space-y-3 pt-2">
+            <span class="text-xs font-bold text-slate-300 uppercase tracking-wider block">Simpan & Tayangkan</span>
+
+            <!-- Download Button -->
+            <button id="btn-download-html" class="w-full py-3 bg-primary hover:bg-primary-dark text-white font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+              <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              Unduh File HTML (Gratis Selamanya)
+            </button>
+            <p class="text-[0.65rem] text-slate-500 text-center">Unduh halaman ini berupa file HTML utuh, gratis untuk di-host di mana pun.</p>
+
+            <div class="relative flex py-2 items-center">
+              <div class="flex-grow border-t border-slate-900"></div>
+              <span class="flex-shrink mx-3 text-[0.65rem] text-slate-600 font-bold uppercase tracking-widest">Atau</span>
+              <div class="flex-grow border-t border-slate-900"></div>
+            </div>
+
+            <!-- Host/Domain Lead Form -->
+            <div class="border border-slate-800 bg-slate-900/30 p-4 rounded-xl space-y-4">
+              <div>
+                <span class="text-xs font-bold text-amber-400 flex items-center gap-1.5">
+                  🚀 Hubungkan ke Domain Sendiri
+                </span>
+                <p class="text-[0.7rem] text-slate-400 mt-1">Ingin website ini online di alamat tersendiri (seperti <b>nama-usaha.com</b>)?</p>
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex items-center justify-between text-xs border-b border-slate-800/80 pb-2">
+                  <span class="text-slate-400">Pendaftaran Domain (.com/.id)</span>
+                  <span class="font-semibold text-slate-200">Termasuk</span>
+                </div>
+                <div class="flex items-center justify-between text-xs border-b border-slate-800/80 pb-2">
+                  <span class="text-slate-400">Hosting cPanel Cepat & SSL Aman</span>
+                  <span class="font-semibold text-slate-200">Termasuk</span>
+                </div>
+                <div class="flex items-center justify-between text-xs pb-1">
+                  <span class="text-slate-400">Biaya Setup & Kustomisasi</span>
+                  <span class="font-bold text-primary-light">Mulai Rp 299rb/tahun</span>
+                </div>
+              </div>
+
+              <button id="btn-request-host" class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:brightness-110 text-slate-950 font-extrabold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l5.1-1.4A10 10 0 1 0 12 2Zm0 18.1c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3 0-.2 0-.3-.1-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.7 4.3 3.8.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.3Z"/>
+                </svg>
+                Online-kan Website via WhatsApp
+              </button>
+            </div>
+
+          </div>
+
+          <div class="pt-2">
+            <button id="prev-to-tab2" class="w-full py-3 bg-slate-900 border border-slate-800 text-slate-300 hover:text-white font-semibold text-xs rounded-lg transition-colors flex items-center justify-center gap-1">
+              <svg class="w-4 h-4 animate-bounce-left" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              Kembali ke Isi Konten
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RIGHT PANEL: Live Simulator & Preview Canvas (Grid: 7 cols) -->
+    <section class="lg:col-span-7 bg-slate-900 p-4 sm:p-6 flex flex-col items-center justify-center h-[calc(100vh-3.25rem)] sticky top-12 z-0">
+      
+      <!-- Preview Frame Header / Controls -->
+      <div class="w-full max-w-3xl flex items-center justify-between mb-4 bg-slate-950 p-2 sm:p-3 rounded-xl border border-slate-800/80">
+        <!-- Device Simulator Toggles -->
+        <div class="flex items-center gap-1 bg-slate-900 p-1 rounded-lg border border-slate-800">
+          <button id="device-btn-desktop" class="px-3 py-1.5 rounded-md text-[0.65rem] font-bold flex items-center gap-1 transition-all focus:outline-none bg-slate-950 text-primary-light">
+            <span>💻</span> Desktop
+          </button>
+          <button id="device-btn-mobile" class="px-3 py-1.5 rounded-md text-[0.65rem] font-bold flex items-center gap-1 transition-all focus:outline-none text-slate-400 hover:text-slate-200">
+            <span>📱</span> Mobile
+          </button>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></span>
+          <span class="text-[0.65rem] font-semibold text-slate-400 tracking-wide uppercase">Preview Sinkron</span>
+        </div>
+      </div>
+
+      <!-- Live Simulator Device Frame Container -->
+      <div class="flex-1 w-full max-w-3xl flex items-center justify-center overflow-hidden">
+        <div id="preview-wrapper" class="w-full h-full bg-white rounded-2xl shadow-2xl border border-slate-800 transition-all duration-300 relative">
+          <!-- Live Preview IFrame -->
+          <iframe id="preview-iframe" class="w-full h-full rounded-2xl border-0 bg-[#FBF9F5]"></iframe>
+        </div>
+      </div>
+
+    </section>
+  </main>
+</Layout>
+
+<!-- Client-side script handling builder logic -->
+<script>
+  // Initial state setup
+  let webData = {
+    businessName: "Kopi Sedap Malam",
+    niche: "kuliner",
+    slogan: "Ngopi Nikmat, Harga Sahabat",
+    description: "Warung kopi khas Nusantara dengan biji pilihan, suasana nyaman cocok untuk nugas atau sekadar berkumpul.",
+    whatsapp: "8159203331",
+    theme: "emerald",
+    features: [
+      { title: "Biji Kopi Pilihan", desc: "100% Kopi Robusta & Arabika lokal berkualitas langsung dari petani." },
+      { title: "Tempat Nyaman", desc: "Dilengkapi WiFi kencang, musik santai, & colokan di setiap sudut meja." },
+      { title: "Harga Sahabat", desc: "Menu lengkap mulai dari Rp 10.000 saja, sangat pas di kantong mahasiswa." }
+    ],
+    services: [
+      { title: "Espresso & Latte", price: "Rp 12.000", desc: "Ekstraksi kopi murni dengan buih susu gurih." },
+      { title: "Kopi Tubruk Nusantara", price: "Rp 10.000", desc: "Seduhan klasik dengan aroma wangi dan body tebal." },
+      { title: "Pisang Goreng Keju", price: "Rp 8.000", desc: "Pisang goreng crispy hangat bertabur cokelat keju melimpah." }
+    ],
+    testimonials: [
+      { name: "Andi Wijaya", role: "Mahasiswa", text: "Tempat andalan buat nugas kuliah. WiFi-nya kenceng, kopinya enak, ramah di kantong!" },
+      { name: "Siti Rahma", role: "Wirausaha", text: "Kopi susunya juara! Sering pesan katering pisang goreng juga buat rapat kantor." }
+    ]
+  };
+
+  // Predefined niche templates for INSTANT local generation
+  const nicheTemplates = {
+    kuliner: {
+      slogan: "Cita Rasa Otentik, Nikmat Setiap Hari",
+      description: "Kedai kuliner lezat yang menghidangkan menu pilihan berkualitas tinggi, diolah higienis dengan bumbu rempah alami warisan keluarga.",
+      features: [
+        { title: "Bahan Berkualitas", desc: "Kami hanya menggunakan bahan segar pilihan terbaik setiap hari." },
+        { title: "Rasa Otentik", desc: "Diolah dengan resep khas keluarga yang dijamin memanjakan lidah." },
+        { title: "Harga Terjangkau", desc: "Porsi kenyang rasa premium dengan harga yang bersahabat." }
+      ],
+      services: [
+        { title: "Menu Andalan Keluarga", price: "Rp 25.000", desc: "Sajian lengkap nasi dengan lauk pauk kaya rempah khas nusantara." },
+        { title: "Paket Sharing Hemat", price: "Rp 65.000", desc: "Porsi besar pas untuk dinikmati bersama 3-4 orang teman atau keluarga." },
+        { title: "Aneka Minuman Segar", price: "Rp 10.000", desc: "Minuman buah asli dan teh rempah hangat pelepas dahaga." }
+      ],
+      testimonials: [
+        { name: "Budi Santoso", role: "Karyawan", text: "Rasa masakannya beneran bikin kangen rumah. Porsinya banyak dan bersih banget!" },
+        { name: "Larasati", role: "Ibu Rumah Tangga", text: "Sering pesan katering di sini buat acara keluarga. Pelayanan ramah, selalu tepat waktu." }
+      ]
+    },
+    jasa: {
+      slogan: "Solusi Cepat, Tuntas, & Bergaransi",
+      description: "Penyedia jasa profesional berpengalaman yang siap membantu menyelesaikan masalah perawatan dan perbaikan rumah Anda dengan jaminan kepuasan.",
+      features: [
+        { title: "Teknisi Ahli", desc: "Dikerjakan oleh tenaga profesional bersertifikat yang berpengalaman bertahun-tahun." },
+        { title: "Jujur & Transparan", desc: "Estimasi biaya di awal tanpa ada biaya tambahan tak terduga." },
+        { title: "Garansi Pekerjaan", desc: "Jaminan perbaikan ulang gratis jika hasil pengerjaan kurang memuaskan." }
+      ],
+      services: [
+        { title: "Layanan Service Standar", price: "Mulai Rp 75.000", desc: "Pembersihan menyeluruh dan inspeksi keamanan sistem kelistrikan/AC." },
+        { title: "Perbaikan Kerusakan Utama", price: "Mulai Rp 150.000", desc: "Penanganan komprehensif untuk masalah kebocoran atau komponen rusak." },
+        { title: "Paket Perawatan Rutin", price: "Rp 250.000 / bln", desc: "Kunjungan rutin bulanan untuk menjaga aset Anda selalu dalam performa prima." }
+      ],
+      testimonials: [
+        { name: "Dian Pratama", role: "Pemilik Rumah", text: "Puas sekali dengan servisnya. Datang tepat waktu, teknisinya sopan, dan langsung dingin AC-nya." },
+        { name: "Fanny Kusuma", role: "Manager Kantor", text: "Sangat responsif saat dihubungi. Pengerjaan cepat dan administrasinya rapi." }
+      ]
+    },
+    toko: {
+      slogan: "Produk Lengkap, Belanja Hemat Tanpa Ribet",
+      description: "Toko belanja online terpercaya yang menyediakan berbagai macam kebutuhan gaya hidup Anda dengan kualitas terbaik dan pengiriman super cepat.",
+      features: [
+        { title: "Kualitas Terjamin", desc: "Semua produk telah melewati pengecekan kualitas ketat sebelum dikirim." },
+        { title: "Pengiriman Instan", desc: "Pemesanan hari ini langsung dikirim di hari yang sama dengan aman." },
+        { title: "Pelayanan 24/7", desc: "Customer service kami ramah dan siap membantu keluhan Anda kapan saja." }
+      ],
+      services: [
+        { title: "Koleksi Terpopuler", price: "Mulai Rp 89.000", desc: "Produk best seller dengan desain kekinian yang paling dicari." },
+        { title: "Paket Bundling Hemat", price: "Rp 150.000", desc: "Paket lengkap bundling isi 3 item hemat hingga 25%." },
+        { title: "Aksesori Pelengkap", price: "Mulai Rp 25.000", desc: "Aksesori pelengkap berkualitas tinggi untuk menyempurnakan penampilan." }
+      ],
+      testimonials: [
+        { name: "Rian Hidayat", role: "Pelanggan Setia", text: "Barangnya realpict banget! Pengirimannya cepat dan adminnya sabar jawab pertanyaan saya." },
+        { name: "Mega Utami", role: "Reseller", text: "Sudah langganan beli grosir di sini buat dijual lagi. Selalu untung karena harganya miring." }
+      ]
+    },
+    salon: {
+      slogan: "Tampil Percaya Diri dengan Gaya Terbaikmu",
+      description: "Pusat perawatan rambut dan wajah modern yang mengombinasikan keahlian stylist berpengalaman dengan produk premium demi penampilan terbaik Anda.",
+      features: [
+        { title: "Stylist Berbakat", desc: "Tim ahli yang memahami gaya rambut trendi dan cocok untuk karakter Anda." },
+        { title: "Produk Premium", desc: "Menggunakan bahan natural berkualitas tinggi yang aman untuk kulit dan rambut." },
+        { title: "Ruangan Nyaman", desc: "Suasana santai dengan alunan musik rileks yang membuat Anda betah perawatan." }
+      ],
+      services: [
+        { title: "Potong Rambut & Styling", price: "Rp 45.000", desc: "Potong rambut presisi lengkap dengan cuci, pijat kepala, dan styling pomade/hairdry." },
+        { title: "Perawatan Kulit Wajah", price: "Rp 95.000", desc: "Deep cleaning dan masker wajah untuk mengembalikan kesegaran kulit Anda." },
+        { title: "Paket Grooming Lengkap", price: "Rp 120.000", desc: "Perawatan rambut, cukur jenggot, pijat leher, dan masker wajah dalam satu sesi." }
+      ],
+      testimonials: [
+        { name: "Hendra Wijaya", role: "Karyawan Swasta", text: "Cukurannya rapi banget, stylist-nya bisa ngasih saran model rambut yang cocok sama muka saya." },
+        { name: "Riska Amalia", role: "Mahasiswi", text: "Creambath-nya enak banget, pijatannya berasa rileks dan wanginya tahan seharian!" }
+      ]
+    },
+    kesehatan: {
+      slogan: "Keluarga Sehat, Hidup Bahagia & Tenang",
+      description: "Layanan konsultasi kesehatan dan terapi fisik tepercaya yang berfokus pada pencegahan penyakit dan pemulihan tubuh secara aman dan ramah.",
+      features: [
+        { title: "Tenaga Medis Ramah", desc: "Diampu oleh praktisi kesehatan bersertifikat resmi yang mengutamakan kenyamanan pasien." },
+        { title: "Konsultasi Terbuka", desc: "Waktu konsultasi yang lega agar Anda bisa menceritakan keluhan dengan detail." },
+        { title: "Fasilitas Bersih", desc: "Standar sterilisasi tinggi demi menjaga kebersihan lingkungan medis." }
+      ],
+      services: [
+        { title: "Konsultasi Kesehatan", price: "Rp 60.000", desc: "Pemeriksaan gejala umum, cek tekanan darah, dan saran medis menyeluruh." },
+        { title: "Terapi Pemulihan Fisik", price: "Rp 110.000", desc: "Sesi fisioterapi terarah untuk memulihkan kekakuan otot pasca cidera/lelah." },
+        { title: "Paket Cek Darah Lengkap", price: "Rp 150.000", desc: "Cek kadar kolesterol, gula darah, dan asam urat berkala." }
+      ],
+      testimonials: [
+        { name: "Supardi", role: "Wiraswasta (52 th)", text: "Dokter dan terapisnya sabar sekali menjelaskan. Sakit punggung saya berangsur pulih." },
+        { name: "Eka Safitri", role: "Ibu Rumah Tangga", text: "Kliniknya bersih sekali dan tidak antre panjang karena sistem booking WhatsAppnya rapi." }
+      ]
+    },
+    bimbel: {
+      slogan: "Belajar Menyenangkan, Raih Prestasi Impian",
+      description: "Lembaga bimbingan belajar intensif yang memadukan metode belajar interaktif dengan pemahaman konsep dasar agar siswa menguasai pelajaran sekolah dengan percaya diri.",
+      features: [
+        { title: "Tutor Sabar & Seru", desc: "Tutor muda berprestasi yang mampu menjelaskan pelajaran sulit menjadi mudah dipahami." },
+        { title: "Metode Konseptual", desc: "Bukan sekadar menghafal rumus, melainkan memahami konsep dasar materi secara logis." },
+        { title: "Kelas Interaktif", desc: "Jumlah siswa dibatasi agar suasana belajar tetap fokus, asyik, dan santai." }
+      ],
+      services: [
+        { title: "Les Privat 1-on-1", price: "Rp 75.000 / Sesi", desc: "Bimbingan belajar tatap muka personal, bebas konsultasi PR tugas sekolah." },
+        { title: "Kelas Kelompok Belajar", price: "Rp 350.000 / Bln", desc: "Belajar bersama kelompok kecil (max 5 siswa) dengan modul belajar lengkap." },
+        { title: "Intensif Ujian Nasional/SBMPTN", price: "Rp 500.000", desc: "Program intensif latihan soal dan strategi kelulusan perguruan tinggi negeri." }
+      ],
+      testimonials: [
+        { name: "Rahmat Dani", role: "Orang Tua Siswa", text: "Nilai matematika anak saya naik drastis sejak les di sini. Cara tutor ngajarnya asyik katanya." },
+        { name: "Salsa", role: "Siswi SMA Kelas 12", text: "Tutornya sabar banget nemenin ngerjain soal fisika sampai paham. Sangat membantu lulus UTBK!" }
+      ]
+    }
+  };
+
+  // Predefined theme colors for injection
+  const colorThemes = {
+    emerald: {
+      primary: "#0E7C66",
+      primaryDark: "#0A5C4B",
+      primaryLight: "#34D399",
+      accent: "#F2A93B",
+      accentDark: "#D98A1E",
+      background: "#FBF9F5",
+      dark: "#1A2E29",
+      border: "#E6E2D8",
+      muted: "#5C6B66"
+    },
+    kopisusu: {
+      primary: "#78350F",
+      primaryDark: "#451A03",
+      primaryLight: "#D97706",
+      accent: "#F59E0B",
+      accentDark: "#B45309",
+      background: "#FFFBEB",
+      dark: "#451A03",
+      border: "#F3E8FF",
+      muted: "#78350F80"
+    },
+    ocean: {
+      primary: "#0284C7",
+      primaryDark: "#0369A1",
+      primaryLight: "#38BDF8",
+      accent: "#F43F5E",
+      accentDark: "#BE123C",
+      background: "#F0F9FF",
+      dark: "#0F172A",
+      border: "#E0F2FE",
+      muted: "#475569"
+    },
+    sunset: {
+      primary: "#EA580C",
+      primaryDark: "#C2410C",
+      primaryLight: "#FB923C",
+      accent: "#10B981",
+      accentDark: "#047857",
+      background: "#FFF7ED",
+      dark: "#1E1B4B",
+      border: "#FFEDD5",
+      muted: "#4B5563"
+    },
+    midnight: {
+      primary: "#8B5CF6",
+      primaryDark: "#6D28D9",
+      primaryLight: "#A78BFA",
+      accent: "#06B6D4",
+      accentDark: "#0891B2",
+      background: "#0F172A",
+      dark: "#F8FAFC",
+      border: "#1E293B",
+      muted: "#94A3B8"
+    }
+  };
+
+  // Initialize Elements
+  const iframe = document.getElementById("preview-iframe") as HTMLIFrameElement;
+  const generateBtn = document.getElementById("btn-generate");
+  const generateSpinner = document.getElementById("generate-spinner");
+  const generateBtnText = document.getElementById("generate-btn-text");
+  const aiStatusText = document.getElementById("ai-status");
+  const geminiToggle = document.getElementById("gemini-toggle") as HTMLInputElement;
+  const geminiKeyContainer = document.getElementById("gemini-key-container");
+  const geminiApiKeyInput = document.getElementById("gemini-api-key") as HTMLInputElement;
+
+  // Form Inputs
+  const inputBusName = document.getElementById("input-business-name") as HTMLInputElement;
+  const inputWhatsApp = document.getElementById("input-whatsapp") as HTMLInputElement;
+  const inputDescription = document.getElementById("input-description") as HTMLTextAreaElement;
+  const inputSlogan = document.getElementById("input-slogan") as HTMLInputElement;
+  const inputHeroDesc = document.getElementById("input-hero-desc") as HTMLTextAreaElement;
+
+  // Tabs
+  const tabBtnProfil = document.getElementById("tab-btn-profil");
+  const tabBtnKonten = document.getElementById("tab-btn-konten");
+  const tabBtnDesain = document.getElementById("tab-btn-desain");
+  const tabContentProfil = document.getElementById("tab-content-profil");
+  const tabContentKonten = document.getElementById("tab-content-konten");
+  const tabContentDesain = document.getElementById("tab-content-desain");
+
+  // Helper: Switch Tabs
+  function showTab(tabName: string) {
+    [tabBtnProfil, tabBtnKonten, tabBtnDesain].forEach(btn => btn?.classList.remove("border-primary-light", "text-primary-light"));
+    [tabBtnProfil, tabBtnKonten, tabBtnDesain].forEach(btn => btn?.classList.add("border-transparent", "text-slate-400"));
+    [tabContentProfil, tabContentKonten, tabContentDesain].forEach(content => content?.classList.add("hidden"));
+
+    if (tabName === "profil") {
+      tabBtnProfil?.classList.add("border-primary-light", "text-primary-light");
+      tabBtnProfil?.classList.remove("border-transparent", "text-slate-400");
+      tabContentProfil?.classList.remove("hidden");
+    } else if (tabName === "konten") {
+      tabBtnKonten?.classList.add("border-primary-light", "text-primary-light");
+      tabBtnKonten?.classList.remove("border-transparent", "text-slate-400");
+      tabContentKonten?.classList.remove("hidden");
+      renderKontenInputs();
+    } else if (tabName === "desain") {
+      tabBtnDesain?.classList.add("border-primary-light", "text-primary-light");
+      tabBtnDesain?.classList.remove("border-transparent", "text-slate-400");
+      tabContentDesain?.classList.remove("hidden");
+    }
+  }
+
+  tabBtnProfil?.addEventListener("click", () => showTab("profil"));
+  tabBtnKonten?.addEventListener("click", () => showTab("konten"));
+  tabBtnDesain?.addEventListener("click", () => showTab("desain"));
+
+  document.getElementById("next-to-tab2")?.addEventListener("click", () => showTab("konten"));
+  document.getElementById("next-to-tab3")?.addEventListener("click", () => showTab("desain"));
+  document.querySelectorAll("[id=prev-to-tab1]").forEach(el => el.addEventListener("click", () => showTab("profil")));
+  document.querySelectorAll("[id=prev-to-tab2]").forEach(el => el.addEventListener("click", () => showTab("konten")));
+
+  // Device view toggles
+  const btnDesktop = document.getElementById("device-btn-desktop");
+  const btnMobile = document.getElementById("device-btn-mobile");
+  const previewWrapper = document.getElementById("preview-wrapper");
+
+  btnDesktop?.addEventListener("click", () => {
+    btnDesktop.classList.add("bg-slate-950", "text-primary-light");
+    btnDesktop.classList.remove("text-slate-400");
+    btnMobile?.classList.remove("bg-slate-950", "text-primary-light");
+    btnMobile?.classList.add("text-slate-400");
+    previewWrapper?.classList.remove("max-w-[375px]", "h-[650px]", "rounded-[40px]", "border-[12px]", "border-slate-950");
+    previewWrapper?.classList.add("w-full", "h-full", "rounded-2xl");
+  });
+
+  btnMobile?.addEventListener("click", () => {
+    btnMobile.classList.add("bg-slate-950", "text-primary-light");
+    btnMobile.classList.remove("text-slate-400");
+    btnDesktop?.classList.remove("bg-slate-950", "text-primary-light");
+    btnDesktop?.classList.add("text-slate-400");
+    previewWrapper?.classList.add("max-w-[375px]", "h-[650px]", "rounded-[40px]", "border-[12px]", "border-slate-950");
+    previewWrapper?.classList.remove("w-full", "h-full", "rounded-2xl");
+  });
+
+  // Toggle API Key view
+  geminiToggle?.addEventListener("change", () => {
+    if (geminiToggle.checked) {
+      geminiKeyContainer?.classList.remove("hidden");
+    } else {
+      geminiKeyContainer?.classList.add("hidden");
+    }
+  });
+
+  // Listen to Niche changes
+  document.querySelectorAll(".select-niche-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      document.querySelectorAll(".select-niche-btn").forEach(b => b.classList.remove("border-primary-light", "bg-slate-900"));
+      const currentBtn = e.currentTarget as HTMLButtonElement;
+      currentBtn.classList.add("border-primary-light", "bg-slate-900");
+      
+      const selectedNiche = currentBtn.getAttribute("data-niche") || "kuliner";
+      webData.niche = selectedNiche;
+
+      // Populate local defaults instantly
+      const tmpl = nicheTemplates[selectedNiche as keyof typeof nicheTemplates];
+      if (tmpl) {
+        inputSlogan.value = tmpl.slogan;
+        inputDescription.placeholder = `Contoh template ${selectedNiche}...`;
+        
+        webData.slogan = tmpl.slogan;
+        webData.description = tmpl.description;
+        webData.features = JSON.parse(JSON.stringify(tmpl.features));
+        webData.services = JSON.parse(JSON.stringify(tmpl.services));
+        webData.testimonials = JSON.parse(JSON.stringify(tmpl.testimonials));
+
+        // Sync main fields
+        inputHeroDesc.value = tmpl.description;
+        
+        updatePreview();
+        renderKontenInputs();
+      }
+    });
+  });
+
+  // Listen to Theme changes
+  document.querySelectorAll(".select-theme-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      document.querySelectorAll(".select-theme-btn").forEach(b => {
+        b.classList.remove("border-primary-light");
+        b.querySelector("svg")?.classList.add("hidden");
+      });
+      
+      const currentBtn = e.currentTarget as HTMLButtonElement;
+      currentBtn.classList.add("border-primary-light");
+      currentBtn.querySelector("svg")?.classList.remove("hidden");
+      
+      const selectedTheme = currentBtn.getAttribute("data-theme") || "emerald";
+      webData.theme = selectedTheme;
+      updatePreview();
+    });
+  });
+
+  // Real-time listener for basic inputs
+  inputBusName?.addEventListener("input", () => {
+    webData.businessName = inputBusName.value;
+    updatePreview();
+  });
+  inputWhatsApp?.addEventListener("input", () => {
+    webData.whatsapp = inputWhatsApp.value;
+    updatePreview();
+  });
+  inputSlogan?.addEventListener("input", () => {
+    webData.slogan = inputSlogan.value;
+    updatePreview();
+  });
+  inputHeroDesc?.addEventListener("input", () => {
+    webData.description = inputHeroDesc.value;
+    updatePreview();
+  });
+
+  // Render inputs for features and services in Tab 2
+  function renderKontenInputs() {
+    const featContainer = document.getElementById("features-list-container");
+    const servContainer = document.getElementById("services-list-container");
+
+    if (featContainer) {
+      featContainer.innerHTML = "";
+      webData.features.forEach((feat, index) => {
+        const div = document.createElement("div");
+        div.className = "bg-slate-900/30 border border-slate-900 p-3 rounded-lg space-y-2";
+        div.innerHTML = `
+          <span class="text-[0.65rem] font-bold text-slate-500 uppercase">Keunggulan #${index + 1}</span>
+          <input type="text" id="feature-title-${index}" class="w-full bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white focus:border-primary-light focus:outline-none" value="${feat.title}" />
+          <input type="text" id="feature-desc-${index}" class="w-full bg-slate-900 border border-slate-850 rounded px-2.5 py-1.5 text-[0.65rem] text-slate-400 focus:border-primary-light focus:outline-none" value="${feat.desc}" />
+        `;
+        featContainer.appendChild(div);
+
+        // Bind events
+        document.getElementById(`feature-title-${index}`)?.addEventListener("input", (e) => {
+          webData.features[index].title = (e.target as HTMLInputElement).value;
+          updatePreview();
+        });
+        document.getElementById(`feature-desc-${index}`)?.addEventListener("input", (e) => {
+          webData.features[index].desc = (e.target as HTMLInputElement).value;
+          updatePreview();
+        });
+      });
+    }
+
+    if (servContainer) {
+      servContainer.innerHTML = "";
+      webData.services.forEach((serv, index) => {
+        const div = document.createElement("div");
+        div.className = "bg-slate-900/30 border border-slate-900 p-3 rounded-lg space-y-2";
+        div.innerHTML = `
+          <span class="text-[0.65rem] font-bold text-slate-500 uppercase">Produk / Layanan #${index + 1}</span>
+          <div class="flex gap-2">
+            <input type="text" id="service-title-${index}" class="flex-1 bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-white focus:border-primary-light focus:outline-none" value="${serv.title}" />
+            <input type="text" id="service-price-${index}" class="w-32 bg-slate-900 border border-slate-800 rounded px-2.5 py-1.5 text-xs text-primary-light font-bold focus:border-primary-light focus:outline-none" value="${serv.price}" />
+          </div>
+          <input type="text" id="service-desc-${index}" class="w-full bg-slate-900 border border-slate-850 rounded px-2.5 py-1.5 text-[0.65rem] text-slate-400 focus:border-primary-light focus:outline-none" value="${serv.desc}" />
+        `;
+        servContainer.appendChild(div);
+
+        // Bind events
+        document.getElementById(`service-title-${index}`)?.addEventListener("input", (e) => {
+          webData.services[index].title = (e.target as HTMLInputElement).value;
+          updatePreview();
+        });
+        document.getElementById(`service-price-${index}`)?.addEventListener("input", (e) => {
+          webData.services[index].price = (e.target as HTMLInputElement).value;
+          updatePreview();
+        });
+        document.getElementById(`service-desc-${index}`)?.addEventListener("input", (e) => {
+          webData.services[index].desc = (e.target as HTMLInputElement).value;
+          updatePreview();
+        });
+      });
+    }
+  }
+
+  // AI Content Generator Execution
+  generateBtn?.addEventListener("click", async () => {
+    const businessName = inputBusName.value.trim();
+    const userDescription = inputDescription.value.trim();
+    const isGeminiMode = geminiToggle.checked;
+    const apiKey = geminiApiKeyInput.value.trim();
+
+    if (!businessName) {
+      alert("Masukkan nama bisnis Anda terlebih dahulu.");
+      inputBusName.focus();
+      return;
+    }
+
+    if (!userDescription) {
+      alert("Tuliskan deskripsi singkat usaha Anda agar AI memiliki bahan untuk menulis.");
+      inputDescription.focus();
+      return;
+    }
+
+    // Enter Loading State
+    generateBtn.setAttribute("disabled", "true");
+    generateSpinner?.classList.remove("hidden");
+    generateBtnText!.innerText = "AI sedang berpikir...";
+    aiStatusText?.classList.remove("hidden");
+
+    try {
+      if (isGeminiMode && apiKey) {
+        // CALL REAL GEMINI API via client-side fetch
+        const prompt = `Anda adalah copywriting expert khusus UMKM Indonesia. Tulis konten website landing page promosi yang sangat menarik dalam Bahasa Indonesia untuk:
+        Nama Bisnis: "${businessName}"
+        Deskripsi Singkat: "${userDescription}"
+        Niche: "${webData.niche}"
+
+        Hasilkan output berupa format JSON murni TANPA markdown block (tanpa \`\`\`json). Harus persis mengikuti skema berikut:
+        {
+          "slogan": "Tagline marketing yang persuasif dan menangkap perhatian konsumen",
+          "description": "Deskripsi hero landing page sepanjang 2-3 kalimat yang mengundang emosi pembaca",
+          "features": [
+            {"title": "Nama Keunggulan 1 (maks 3 kata)", "desc": "Penjelasan singkat keunggulan 1 (1 kalimat)"},
+            {"title": "Nama Keunggulan 2 (maks 3 kata)", "desc": "Penjelasan singkat keunggulan 2 (1 kalimat)"},
+            {"title": "Nama Keunggulan 3 (maks 3 kata)", "desc": "Penjelasan singkat keunggulan 3 (1 kalimat)"}
+          ],
+          "services": [
+            {"title": "Produk/Jasa Andalan 1", "price": "Harga / Mulai Rp xx", "desc": "Deskripsi kelebihan produk 1"},
+            {"title": "Produk/Jasa Andalan 2", "price": "Harga / Mulai Rp xx", "desc": "Deskripsi kelebihan produk 2"},
+            {"title": "Produk/Jasa Andalan 3", "price": "Harga / Mulai Rp xx", "desc": "Deskripsi kelebihan produk 3"}
+          ],
+          "testimonials": [
+            {"name": "Nama Pelanggan 1 (nama lokal indonesia)", "role": "Status (misal: Ibu Rumah Tangga, Karyawan, Pelajar)", "text": "Review kepuasan menggunakan produk ini secara natural"},
+            {"name": "Nama Pelanggan 2 (nama lokal indonesia)", "role": "Status", "text": "Review kepuasan secara natural"}
+          ]
+        }`;
+
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              responseMimeType: "application/json"
+            }
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error("Gagal terhubung ke API Gemini. Periksa kembali API Key Anda.");
+        }
+
+        const resData = await response.json();
+        const jsonText = resData.candidates[0].content.parts[0].text;
+        const generatedData = JSON.parse(jsonText.replace(/```json/g, '').replace(/```/g, '').trim());
+
+        // Apply generated data to state
+        webData.slogan = generatedData.slogan;
+        webData.description = generatedData.description;
+        webData.features = generatedData.features;
+        webData.services = generatedData.services;
+        webData.testimonials = generatedData.testimonials;
+
+      } else {
+        // FALLBACK / MOCK AI TEMPLATE GENERATOR
+        // Simulate thinking time
+        await new Promise(resolve => setTimeout(resolve, 1800));
+
+        const baseTmpl = nicheTemplates[webData.niche as keyof typeof nicheTemplates] || nicheTemplates.kuliner;
+        
+        // Dynamically tailor text values with user inputs
+        webData.slogan = `Solusi Terbaik untuk ${businessName}`;
+        webData.description = userDescription;
+        
+        // Inherit default features/services but replace occurrences of business reference if any
+        webData.features = JSON.parse(JSON.stringify(baseTmpl.features));
+        webData.services = JSON.parse(JSON.stringify(baseTmpl.services));
+        webData.testimonials = JSON.parse(JSON.stringify(baseTmpl.testimonials));
+      }
+
+      // Update Inputs
+      inputSlogan.value = webData.slogan;
+      inputHeroDesc.value = webData.description;
+
+      // Update preview and tab UI
+      updatePreview();
+      renderKontenInputs();
+      
+      // Auto navigate to Tab 2 to let them review
+      showTab("konten");
+
+    } catch (err: any) {
+      console.error(err);
+      alert(err.message || "Terjadi kesalahan saat memproses generator AI.");
+    } finally {
+      generateBtn.removeAttribute("disabled");
+      generateSpinner?.classList.add("hidden");
+      generateBtnText!.innerText = "Tulis & Susun Pakai AI ✨";
+      aiStatusText?.classList.add("hidden");
+    }
+  });
+
+  // Function to build full HTML structure for the simulator iframe
+  function renderHTML(data: typeof webData): string {
+    const t = colorThemes[data.theme as keyof typeof colorThemes] || colorThemes.emerald;
+    const cleanWA = data.whatsapp.replace(/\D/g, "");
+    const waLink = `https://wa.me/62${cleanWA}?text=Halo%20Admin%20${encodeURIComponent(data.businessName)}%2C%20saya%20tertarik%20dengan%20produk%2FLayanan%20Anda.`;
+
+    return `
+      <!DOCTYPE html>
+      <html lang="id">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>${data.businessName}</title>
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"><\/script>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+        <script>
+          tailwind.config = {
+            theme: {
+              extend: {
+                colors: {
+                  primary: '${t.primary}',
+                  primaryDark: '${t.primaryDark}',
+                  primaryLight: '${t.primaryLight}',
+                  accent: '${t.accent}',
+                  accentDark: '${t.accentDark}',
+                  dark: '${t.dark}',
+                  bgLight: '${t.background}',
+                  borderCustom: '${t.border}',
+                  mutedCustom: '${t.muted}'
+                },
+                fontFamily: {
+                  sans: ['Plus Jakarta Sans', 'sans-serif'],
+                  display: ['Outfit', 'sans-serif']
+                }
+              }
+            }
+          }
+        <\/script>
+        <style>
+          body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: ${t.background};
+            color: ${t.dark};
+          }
+          h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+          }
+          .custom-scribble {
+            position: relative;
+            z-index: 0;
+          }
+          .custom-scribble::after {
+            content: "";
+            position: absolute;
+            left: -2%;
+            right: -2%;
+            bottom: 0.05em;
+            height: 0.3em;
+            background: ${t.accent};
+            opacity: 0.4;
+            border-radius: 0.2em;
+            transform: rotate(-1deg);
+            z-index: -1;
+          }
+        </style>
+      </head>
+      <body class="min-h-screen flex flex-col">
+        
+        <!-- HEADER -->
+        <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-gray-100 py-4 px-6 flex items-center justify-between">
+          <a href="#" class="text-lg font-extrabold tracking-tight text-primary hover:opacity-90 transition-opacity">
+            ${data.businessName}
+          </a>
+          <a href="${waLink}" target="_blank" class="px-4 py-2 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primaryDark transition-colors">
+            Hubungi Kami
+          </a>
+        </header>
+
+        <!-- HERO SECTION -->
+        <section class="py-12 sm:py-20 px-6 text-center max-w-4xl mx-auto flex-1 flex flex-col justify-center items-center">
+          <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full mb-6 uppercase tracking-wider">
+            Selamat Datang
+          </span>
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-6 text-dark">
+            <span class="custom-scribble">${data.slogan}</span>
+          </h1>
+          <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
+            ${data.description}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            <a href="${waLink}" target="_blank" class="px-7 py-3.5 bg-primary text-white font-bold text-sm rounded-xl hover:bg-primaryDark transition-colors shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l5.1-1.4A10 10 0 1 0 12 2Zm0 18.1c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3 0-.2 0-.3-.1-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.7 4.3 3.8.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.3Z"/>
+              </svg>
+              Hubungi via WhatsApp
+            </a>
+          </div>
+        </section>
+
+        <!-- FEATURES SECTION -->
+        <section class="py-12 bg-white px-6">
+          <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-10">
+              <h2 class="text-2xl font-bold tracking-tight text-dark">Mengapa Memilih Kami?</h2>
+              <div class="w-12 h-1 bg-primary mx-auto mt-3 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              ${data.features.map(f => `
+                <div class="p-6 rounded-xl border border-gray-150 bg-gray-50/50 hover:shadow-md transition-shadow">
+                  <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-bold text-base mb-4">✓</div>
+                  <h3 class="text-base font-bold text-dark mb-2">${f.title}</h3>
+                  <p class="text-xs text-gray-500 leading-relaxed">${f.desc}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+
+        <!-- SERVICES / PRODUCTS SECTION -->
+        <section class="py-12 px-6 bg-bgLight/50">
+          <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-10">
+              <h2 class="text-2xl font-bold tracking-tight text-dark">Layanan & Menu Andalan</h2>
+              <div class="w-12 h-1 bg-primary mx-auto mt-3 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              ${data.services.map(s => `
+                <div class="bg-white rounded-xl border border-gray-150 overflow-hidden shadow-sm flex flex-col justify-between p-6">
+                  <div>
+                    <div class="flex items-center justify-between mb-3">
+                      <h3 class="text-base font-bold text-dark truncate">${s.title}</h3>
+                      <span class="text-xs font-bold text-primary px-2.5 py-1 bg-primary/10 rounded-full flex-shrink-0">${s.price}</span>
+                    </div>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-6">${s.desc}</p>
+                  </div>
+                  <a href="${waLink}" target="_blank" class="w-full text-center py-2 border border-primary text-primary hover:bg-primary hover:text-white transition-colors rounded-lg text-xs font-bold">
+                    Pesan Sekarang
+                  </a>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="py-12 bg-white px-6">
+          <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+              <h2 class="text-2xl font-bold tracking-tight text-dark">Apa Kata Pelanggan Kami?</h2>
+              <div class="w-12 h-1 bg-primary mx-auto mt-3 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              ${data.testimonials.map(t => `
+                <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 flex flex-col justify-between">
+                  <p class="text-xs text-gray-600 italic leading-relaxed mb-4">"${t.text}"</p>
+                  <div>
+                    <div class="font-bold text-xs text-dark">${t.name}</div>
+                    <div class="text-[0.65rem] text-gray-400 mt-0.5">${t.role}</div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="py-8 bg-slate-900 text-slate-400 text-center px-6 mt-auto text-xs border-t border-slate-800">
+          <div class="max-w-4xl mx-auto space-y-3">
+            <div class="font-bold text-white">${data.businessName}</div>
+            <p class="text-[0.7rem] text-slate-500">© 2026 ${data.businessName}. Hak Cipta Dilindungi.</p>
+            <p class="text-[0.65rem] text-slate-600">Dibuat menggunakan Websitetermaju AI Website Builder</p>
+          </div>
+        </footer>
+
+      </body>
+      </html>
+    `;
+  }
+
+  // Update IFrame source document with real-time modifications
+  function updatePreview() {
+    if (iframe) {
+      iframe.srcdoc = renderHTML(webData);
+    }
+  }
+
+  // Initial render calls
+  updatePreview();
+  renderKontenInputs();
+
+  // HTML Export handler
+  document.getElementById("btn-download-html")?.addEventListener("click", () => {
+    const htmlContent = renderHTML(webData);
+    const blob = new Blob([htmlContent], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${webData.businessName.toLowerCase().replace(/\s+/g, "-")}-website.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  // Request Hosting/Domain lead generation handler
+  document.getElementById("btn-request-host")?.addEventListener("click", () => {
+    const waText = `Halo Admin websitetermaju! Saya sudah mendesain website UMKM saya menggunakan AI Builder.
+
+Detail Bisnis:
+- Nama Bisnis: ${webData.businessName}
+- Bidang/Niche: ${webData.niche}
+- Tema Warna: ${webData.theme}
+
+Saya tertarik untuk menghubungkan website ini ke domain sendiri (.com / .id) dan mempublikasikannya secara online. Mohon info cara setup cPanel dan biayanya!`;
+
+    const requestUrl = `https://wa.me/628159203331?text=${encodeURIComponent(waText)}`;
+    window.open(requestUrl, "_blank");
+  });
+</script>
