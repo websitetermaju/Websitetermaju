@@ -1,6 +1,11 @@
 RewriteEngine On
-RewriteCond %{REQUEST_URI} !^/dist/
-RewriteRule ^(.*)$ /dist/$1 [L,QSA]
+
+# Serve committed Astro output internally without exposing /dist in public URLs.
+RewriteRule ^$ dist/index.html [L]
+RewriteCond %{DOCUMENT_ROOT}/dist/$1 -f
+RewriteRule ^(.+)$ dist/$1 [L]
+RewriteCond %{DOCUMENT_ROOT}/dist/$1/index.html -f
+RewriteRule ^(.+?)/?$ dist/$1/index.html [L]
 
 # Baseline security headers for static production pages.
 <IfModule mod_headers.c>
