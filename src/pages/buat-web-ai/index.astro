@@ -3,20 +3,20 @@ import "../../styles/global.css";
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout 
-  title="Buat Web AI Gratis untuk UMKM — websitetermaju" 
-  description="Generator website bertenaga AI gratis khusus untuk pelaku UMKM dan bisnis kecil Indonesia. Desain profesional, instan, dan siap pakai."
+<Layout
+  title="Buat Website UMKM Gratis — websitetermaju"
+  description="Buat website UMKM gratis dengan template cepat. Pilih bidang bisnis, edit konten, unduh HTML, siap tayangkan. Tanpa ribet, tanpa coding."
 >
   <!-- Builder Header -->
   <header class="bg-slate-900 border-b border-slate-800 text-white py-3 px-4 sm:px-6 flex items-center justify-between sticky top-0 z-40">
     <div class="flex items-center gap-3">
       <a href="/" class="flex items-center gap-1.5 text-base font-extrabold tracking-tight text-white no-underline">
         websitetermaju
-        <span class="text-primary-light">✦</span>
+        <svg class="w-4 h-4 text-primary-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9-9m0 0a9 9 0 0 1 9 9m-9-9v18"/></svg>
       </a>
       <span class="h-4 w-px bg-slate-800 hidden sm:inline"></span>
-      <span class="text-xs bg-primary/20 text-primary-light border border-primary/30 px-2.5 py-0.5 rounded-full font-semibold hidden sm:inline-block">
-        AI Website Builder untuk UMKM
+      <span class="text-xs bg-primary/20 text-primary-light border border-primary/30 px-2 py-0.5 rounded-md font-semibold hidden sm:inline-block">
+        Template Cepat untuk UMKM
       </span>
     </div>
     
@@ -64,42 +64,42 @@ import Layout from "../../layouts/Layout.astro";
             <label class="block text-xs font-semibold text-slate-300">Pilih Bidang Bisnis (Niche)</label>
             <div class="grid grid-cols-2 gap-2" id="niche-selector">
               <button data-niche="kuliner" class="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 text-left text-xs transition-all flex items-center gap-2 select-niche-btn border-primary-light bg-slate-900">
-                <span class="text-lg">🍔</span>
+                <svg class="w-5 h-5 text-primary-light flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a3 3 0 0 0-3 3v1H7a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4h.5"/><path d="M14 12a4 4 0 0 0 4-4V7a1 1 0 0 0-1-1h-2V5a3 3 0 0 0-3-3"/><path d="M9 15v-2M15 15v-2M10 21l.5-2M14 21l-.5-2M12 18v2"/></svg>
                 <div>
                   <div class="font-semibold text-slate-200">Kuliner</div>
                   <div class="text-[0.65rem] text-slate-500">Resto, Kafe, Katering</div>
                 </div>
               </button>
               <button data-niche="jasa" class="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 text-left text-xs transition-all flex items-center gap-2 select-niche-btn">
-                <span class="text-lg">🛠️</span>
+                <svg class="w-5 h-5 text-primary-light flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
                 <div>
                   <div class="font-semibold text-slate-200">Jasa</div>
                   <div class="text-[0.65rem] text-slate-500">AC, Laundry, Clean</div>
                 </div>
               </button>
               <button data-niche="toko" class="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 text-left text-xs transition-all flex items-center gap-2 select-niche-btn">
-                <span class="text-lg">🛍️</span>
+                <svg class="w-5 h-5 text-primary-light flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.2 6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9M7 13a5 5 0 0 0 10 0"/></svg>
                 <div>
                   <div class="font-semibold text-slate-200">Toko Online</div>
                   <div class="text-[0.65rem] text-slate-500">Fashion, Sembako, Kue</div>
                 </div>
               </button>
               <button data-niche="salon" class="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 text-left text-xs transition-all flex items-center gap-2 select-niche-btn">
-                <span class="text-lg">✂️</span>
+                <svg class="w-5 h-5 text-primary-light flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 9a4 4 0 0 0-8 0v8a4 4 0 0 0 8 0V9z"/><path d="M12 11H4a2 2 0 1 0 0 4h8"/><circle cx="4" cy="19" r="2"/><circle cx="16" cy="5" r="2"/><circle cx="14" cy="19" r="2"/></svg>
                 <div>
                   <div class="font-semibold text-slate-200">Kecantikan</div>
                   <div class="text-[0.65rem] text-slate-500">Barber, Salon, Spa</div>
                 </div>
               </button>
               <button data-niche="kesehatan" class="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 text-left text-xs transition-all flex items-center gap-2 select-niche-btn">
-                <span class="text-lg">🩺</span>
+                <svg class="w-5 h-5 text-primary-light flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                 <div>
                   <div class="font-semibold text-slate-200">Kesehatan</div>
                   <div class="text-[0.65rem] text-slate-500">Klinik, Apotek, Terapi</div>
                 </div>
               </button>
               <button data-niche="bimbel" class="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 text-left text-xs transition-all flex items-center gap-2 select-niche-btn">
-                <span class="text-lg">✏️</span>
+                <svg class="w-5 h-5 text-primary-light flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M12 6v7M9 9l3-3 3 3"/></svg>
                 <div>
                   <div class="font-semibold text-slate-200">Pendidikan</div>
                   <div class="text-[0.65rem] text-slate-500">Les Privat, Bimbel</div>
@@ -127,14 +127,13 @@ import Layout from "../../layouts/Layout.astro";
 
           <!-- AI Generator Section -->
           <div class="border border-slate-800 bg-slate-950 p-4 rounded-xl space-y-4 relative overflow-hidden mt-6">
-            <div class="absolute -right-8 -top-8 w-24 h-24 bg-primary/10 rounded-full blur-xl pointer-events-none"></div>
             
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2">
-                <span class="text-base">✨</span>
-                <span class="text-xs font-bold text-slate-200 uppercase tracking-wider">AI Generator Content</span>
+                <svg class="w-4 h-4 text-primary-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                <span class="text-xs font-bold text-slate-200 uppercase tracking-wider">Generator Konten</span>
               </div>
-              <!-- Gemini API Key Toggle -->
+              <!-- Gemini Mode Toggle -->
               <label class="relative inline-flex items-center cursor-pointer">
                 <input type="checkbox" id="gemini-toggle" class="sr-only peer">
                 <div class="w-7 h-4 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-slate-400 after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary-light peer-checked:after:bg-slate-950"></div>
@@ -152,6 +151,7 @@ import Layout from "../../layouts/Layout.astro";
                 </a>
               </div>
               <input type="password" id="gemini-api-key" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-primary-light placeholder-slate-600" placeholder="AIzaSy..." />
+              <p class="text-[0.6rem] text-slate-500 leading-relaxed">Kunci API dikirim langsung dari browser Anda ke Google Gemini — tidak disimpan oleh Websitetermaju. Untuk keamanan, gunakan restricted key khusus aplikasi ini di <a href="https://aistudio.google.com/" target="_blank" class="text-primary-light underline">Google AI Studio</a>.</p>
             </div>
 
             <div>
@@ -160,14 +160,14 @@ import Layout from "../../layouts/Layout.astro";
               >Warung kopi khas Nusantara dengan biji pilihan, suasana nyaman cocok untuk nugas atau sekadar berkumpul.</textarea>
             </div>
 
-            <button id="btn-generate" class="w-full py-2.5 bg-gradient-to-r from-primary to-primary-light text-slate-950 font-bold text-xs rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-1.5 shadow-md shadow-primary/10">
+            <button id="btn-generate" class="w-full py-2.5 bg-primary text-slate-950 font-bold text-xs rounded-lg hover:bg-primary-dark transition-all flex items-center justify-center gap-1.5">
               <svg class="w-4 h-4 animate-spin hidden" id="generate-spinner" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              <span id="generate-btn-text">Tulis & Susun Pakai AI ✨</span>
+              <span id="generate-btn-text">Isi Template Cepat</span>
             </button>
-            <div id="ai-status" class="text-[0.65rem] text-slate-400 text-center italic hidden">Menganalisis jenis bisnis dan merangkai halaman...</div>
+            <div id="ai-status" class="text-[0.65rem] text-slate-400 text-center italic hidden">Memuat template sesuai bidang bisnis...</div>
           </div>
 
           <div class="pt-2">
@@ -347,7 +347,7 @@ import Layout from "../../layouts/Layout.astro";
             <span class="text-xs font-bold text-slate-300 uppercase tracking-wider block">Simpan & Tayangkan</span>
 
             <!-- Download Button -->
-            <button id="btn-download-html" class="w-full py-3 bg-primary hover:bg-primary-dark text-white font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+            <button id="btn-download-html" class="w-full py-3 bg-primary hover:bg-primary-dark text-white font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-2">
               <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
               </svg>
@@ -365,7 +365,8 @@ import Layout from "../../layouts/Layout.astro";
             <div class="border border-slate-800 bg-slate-900/30 p-4 rounded-xl space-y-4">
               <div>
                 <span class="text-xs font-bold text-amber-400 flex items-center gap-1.5">
-                  🚀 Hubungkan ke Domain Sendiri
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/><circle cx="12" cy="12" r="10"/></svg>
+                  Hubungkan ke Domain Sendiri
                 </span>
                 <p class="text-[0.7rem] text-slate-400 mt-1">Ingin website ini online di alamat tersendiri (seperti <b>nama-usaha.com</b>)?</p>
               </div>
@@ -385,7 +386,7 @@ import Layout from "../../layouts/Layout.astro";
                 </div>
               </div>
 
-              <button id="btn-request-host" class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:brightness-110 text-slate-950 font-extrabold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5">
+              <button id="btn-request-host" class="w-full py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5">
                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l5.1-1.4A10 10 0 1 0 12 2Zm0 18.1c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3 0-.2 0-.3-.1-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.7 4.3 3.8.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.3Z"/>
                 </svg>
@@ -413,11 +414,13 @@ import Layout from "../../layouts/Layout.astro";
       <div class="w-full max-w-3xl flex items-center justify-between mb-4 bg-slate-950 p-2 sm:p-3 rounded-xl border border-slate-800/80">
         <!-- Device Simulator Toggles -->
         <div class="flex items-center gap-1 bg-slate-900 p-1 rounded-lg border border-slate-800">
-          <button id="device-btn-desktop" class="px-3 py-1.5 rounded-md text-[0.65rem] font-bold flex items-center gap-1 transition-all focus:outline-none bg-slate-950 text-primary-light">
-            <span>💻</span> Desktop
+          <button id="device-btn-desktop" class="px-3 py-1.5 rounded-md text-[0.65rem] font-bold flex items-center gap-1.5 transition-all focus:outline-none bg-slate-950 text-primary-light">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Desktop
           </button>
-          <button id="device-btn-mobile" class="px-3 py-1.5 rounded-md text-[0.65rem] font-bold flex items-center gap-1 transition-all focus:outline-none text-slate-400 hover:text-slate-200">
-            <span>📱</span> Mobile
+          <button id="device-btn-mobile" class="px-3 py-1.5 rounded-md text-[0.65rem] font-bold flex items-center gap-1.5 transition-all focus:outline-none text-slate-400 hover:text-slate-200">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            Mobile
           </button>
         </div>
 
@@ -458,10 +461,6 @@ import Layout from "../../layouts/Layout.astro";
       { title: "Espresso & Latte", price: "Rp 12.000", desc: "Ekstraksi kopi murni dengan buih susu gurih." },
       { title: "Kopi Tubruk Nusantara", price: "Rp 10.000", desc: "Seduhan klasik dengan aroma wangi dan body tebal." },
       { title: "Pisang Goreng Keju", price: "Rp 8.000", desc: "Pisang goreng crispy hangat bertabur cokelat keju melimpah." }
-    ],
-    testimonials: [
-      { name: "Andi Wijaya", role: "Mahasiswa", text: "Tempat andalan buat nugas kuliah. WiFi-nya kenceng, kopinya enak, ramah di kantong!" },
-      { name: "Siti Rahma", role: "Wirausaha", text: "Kopi susunya juara! Sering pesan katering pisang goreng juga buat rapat kantor." }
     ]
   };
 
@@ -479,10 +478,6 @@ import Layout from "../../layouts/Layout.astro";
         { title: "Menu Andalan Keluarga", price: "Rp 25.000", desc: "Sajian lengkap nasi dengan lauk pauk kaya rempah khas nusantara." },
         { title: "Paket Sharing Hemat", price: "Rp 65.000", desc: "Porsi besar pas untuk dinikmati bersama 3-4 orang teman atau keluarga." },
         { title: "Aneka Minuman Segar", price: "Rp 10.000", desc: "Minuman buah asli dan teh rempah hangat pelepas dahaga." }
-      ],
-      testimonials: [
-        { name: "Budi Santoso", role: "Karyawan", text: "Rasa masakannya beneran bikin kangen rumah. Porsinya banyak dan bersih banget!" },
-        { name: "Larasati", role: "Ibu Rumah Tangga", text: "Sering pesan katering di sini buat acara keluarga. Pelayanan ramah, selalu tepat waktu." }
       ]
     },
     jasa: {
@@ -497,10 +492,6 @@ import Layout from "../../layouts/Layout.astro";
         { title: "Layanan Service Standar", price: "Mulai Rp 75.000", desc: "Pembersihan menyeluruh dan inspeksi keamanan sistem kelistrikan/AC." },
         { title: "Perbaikan Kerusakan Utama", price: "Mulai Rp 150.000", desc: "Penanganan komprehensif untuk masalah kebocoran atau komponen rusak." },
         { title: "Paket Perawatan Rutin", price: "Rp 250.000 / bln", desc: "Kunjungan rutin bulanan untuk menjaga aset Anda selalu dalam performa prima." }
-      ],
-      testimonials: [
-        { name: "Dian Pratama", role: "Pemilik Rumah", text: "Puas sekali dengan servisnya. Datang tepat waktu, teknisinya sopan, dan langsung dingin AC-nya." },
-        { name: "Fanny Kusuma", role: "Manager Kantor", text: "Sangat responsif saat dihubungi. Pengerjaan cepat dan administrasinya rapi." }
       ]
     },
     toko: {
@@ -515,10 +506,6 @@ import Layout from "../../layouts/Layout.astro";
         { title: "Koleksi Terpopuler", price: "Mulai Rp 89.000", desc: "Produk best seller dengan desain kekinian yang paling dicari." },
         { title: "Paket Bundling Hemat", price: "Rp 150.000", desc: "Paket lengkap bundling isi 3 item hemat hingga 25%." },
         { title: "Aksesori Pelengkap", price: "Mulai Rp 25.000", desc: "Aksesori pelengkap berkualitas tinggi untuk menyempurnakan penampilan." }
-      ],
-      testimonials: [
-        { name: "Rian Hidayat", role: "Pelanggan Setia", text: "Barangnya realpict banget! Pengirimannya cepat dan adminnya sabar jawab pertanyaan saya." },
-        { name: "Mega Utami", role: "Reseller", text: "Sudah langganan beli grosir di sini buat dijual lagi. Selalu untung karena harganya miring." }
       ]
     },
     salon: {
@@ -533,10 +520,6 @@ import Layout from "../../layouts/Layout.astro";
         { title: "Potong Rambut & Styling", price: "Rp 45.000", desc: "Potong rambut presisi lengkap dengan cuci, pijat kepala, dan styling pomade/hairdry." },
         { title: "Perawatan Kulit Wajah", price: "Rp 95.000", desc: "Deep cleaning dan masker wajah untuk mengembalikan kesegaran kulit Anda." },
         { title: "Paket Grooming Lengkap", price: "Rp 120.000", desc: "Perawatan rambut, cukur jenggot, pijat leher, dan masker wajah dalam satu sesi." }
-      ],
-      testimonials: [
-        { name: "Hendra Wijaya", role: "Karyawan Swasta", text: "Cukurannya rapi banget, stylist-nya bisa ngasih saran model rambut yang cocok sama muka saya." },
-        { name: "Riska Amalia", role: "Mahasiswi", text: "Creambath-nya enak banget, pijatannya berasa rileks dan wanginya tahan seharian!" }
       ]
     },
     kesehatan: {
@@ -551,10 +534,6 @@ import Layout from "../../layouts/Layout.astro";
         { title: "Konsultasi Kesehatan", price: "Rp 60.000", desc: "Pemeriksaan gejala umum, cek tekanan darah, dan saran medis menyeluruh." },
         { title: "Terapi Pemulihan Fisik", price: "Rp 110.000", desc: "Sesi fisioterapi terarah untuk memulihkan kekakuan otot pasca cidera/lelah." },
         { title: "Paket Cek Darah Lengkap", price: "Rp 150.000", desc: "Cek kadar kolesterol, gula darah, dan asam urat berkala." }
-      ],
-      testimonials: [
-        { name: "Supardi", role: "Wiraswasta (52 th)", text: "Dokter dan terapisnya sabar sekali menjelaskan. Sakit punggung saya berangsur pulih." },
-        { name: "Eka Safitri", role: "Ibu Rumah Tangga", text: "Kliniknya bersih sekali dan tidak antre panjang karena sistem booking WhatsAppnya rapi." }
       ]
     },
     bimbel: {
@@ -569,10 +548,6 @@ import Layout from "../../layouts/Layout.astro";
         { title: "Les Privat 1-on-1", price: "Rp 75.000 / Sesi", desc: "Bimbingan belajar tatap muka personal, bebas konsultasi PR tugas sekolah." },
         { title: "Kelas Kelompok Belajar", price: "Rp 350.000 / Bln", desc: "Belajar bersama kelompok kecil (max 5 siswa) dengan modul belajar lengkap." },
         { title: "Intensif Ujian Nasional/SBMPTN", price: "Rp 500.000", desc: "Program intensif latihan soal dan strategi kelulusan perguruan tinggi negeri." }
-      ],
-      testimonials: [
-        { name: "Rahmat Dani", role: "Orang Tua Siswa", text: "Nilai matematika anak saya naik drastis sejak les di sini. Cara tutor ngajarnya asyik katanya." },
-        { name: "Salsa", role: "Siswi SMA Kelas 12", text: "Tutornya sabar banget nemenin ngerjain soal fisika sampai paham. Sangat membantu lulus UTBK!" }
       ]
     }
   };
@@ -744,7 +719,7 @@ import Layout from "../../layouts/Layout.astro";
         webData.description = tmpl.description;
         webData.features = JSON.parse(JSON.stringify(tmpl.features));
         webData.services = JSON.parse(JSON.stringify(tmpl.services));
-        webData.testimonials = JSON.parse(JSON.stringify(tmpl.testimonials));
+
 
         // Sync main fields
         inputHeroDesc.value = tmpl.description;
@@ -874,7 +849,7 @@ import Layout from "../../layouts/Layout.astro";
     // Enter Loading State
     generateBtn.setAttribute("disabled", "true");
     generateSpinner?.classList.remove("hidden");
-    generateBtnText!.innerText = "AI sedang berpikir...";
+    generateBtnText!.innerText = "Memuat...";
     aiStatusText?.classList.remove("hidden");
 
     try {
@@ -899,10 +874,6 @@ import Layout from "../../layouts/Layout.astro";
             {"title": "Produk/Jasa Andalan 2", "price": "Harga / Mulai Rp xx", "desc": "Deskripsi kelebihan produk 2"},
             {"title": "Produk/Jasa Andalan 3", "price": "Harga / Mulai Rp xx", "desc": "Deskripsi kelebihan produk 3"}
           ],
-          "testimonials": [
-            {"name": "Nama Pelanggan 1 (nama lokal indonesia)", "role": "Status (misal: Ibu Rumah Tangga, Karyawan, Pelajar)", "text": "Review kepuasan menggunakan produk ini secara natural"},
-            {"name": "Nama Pelanggan 2 (nama lokal indonesia)", "role": "Status", "text": "Review kepuasan secara natural"}
-          ]
         }`;
 
         const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
@@ -932,7 +903,7 @@ import Layout from "../../layouts/Layout.astro";
         webData.description = generatedData.description;
         webData.features = generatedData.features;
         webData.services = generatedData.services;
-        webData.testimonials = generatedData.testimonials;
+
 
       } else {
         // FALLBACK / MOCK AI TEMPLATE GENERATOR
@@ -948,7 +919,7 @@ import Layout from "../../layouts/Layout.astro";
         // Inherit default features/services but replace occurrences of business reference if any
         webData.features = JSON.parse(JSON.stringify(baseTmpl.features));
         webData.services = JSON.parse(JSON.stringify(baseTmpl.services));
-        webData.testimonials = JSON.parse(JSON.stringify(baseTmpl.testimonials));
+
       }
 
       // Update Inputs
@@ -968,7 +939,7 @@ import Layout from "../../layouts/Layout.astro";
     } finally {
       generateBtn.removeAttribute("disabled");
       generateSpinner?.classList.add("hidden");
-      generateBtnText!.innerText = "Tulis & Susun Pakai AI ✨";
+      generateBtnText!.innerText = "Isi Template Cepat";
       aiStatusText?.classList.add("hidden");
     }
   });
@@ -1061,7 +1032,7 @@ import Layout from "../../layouts/Layout.astro";
           <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full mb-6 uppercase tracking-wider">
             Selamat Datang
           </span>
-          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-6 text-dark">
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-6 text-dark break-words">
             <span class="custom-scribble">${data.slogan}</span>
           </h1>
           <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
@@ -1111,32 +1082,9 @@ import Layout from "../../layouts/Layout.astro";
                       <h3 class="text-base font-bold text-dark truncate">${s.title}</h3>
                       <span class="text-xs font-bold text-primary px-2.5 py-1 bg-primary/10 rounded-full flex-shrink-0">${s.price}</span>
                     </div>
-                    <p class="text-xs text-gray-500 leading-relaxed mb-6">${s.desc}</p>
+                    <p class="text-xs text-gray-500 leading-relaxed">${s.desc}</p>
                   </div>
-                  <a href="${waLink}" target="_blank" class="w-full text-center py-2 border border-primary text-primary hover:bg-primary hover:text-white transition-colors rounded-lg text-xs font-bold">
-                    Pesan Sekarang
-                  </a>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        </section>
-
-        <!-- TESTIMONIALS -->
-        <section class="py-12 bg-white px-6">
-          <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-10">
-              <h2 class="text-2xl font-bold tracking-tight text-dark">Apa Kata Pelanggan Kami?</h2>
-              <div class="w-12 h-1 bg-primary mx-auto mt-3 rounded-full"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              ${data.testimonials.map(t => `
-                <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 flex flex-col justify-between">
-                  <p class="text-xs text-gray-600 italic leading-relaxed mb-4">"${t.text}"</p>
-                  <div>
-                    <div class="font-bold text-xs text-dark">${t.name}</div>
-                    <div class="text-[0.65rem] text-gray-400 mt-0.5">${t.role}</div>
-                  </div>
+                  <div class="mt-auto pt-4 text-center text-[0.65rem] font-bold text-slate-400 border-t border-gray-100">#${s.title.replace(/\s+/g, '').toLowerCase()}</div>
                 </div>
               `).join('')}
             </div>
@@ -1148,7 +1096,7 @@ import Layout from "../../layouts/Layout.astro";
           <div class="max-w-4xl mx-auto space-y-3">
             <div class="font-bold text-white">${data.businessName}</div>
             <p class="text-[0.7rem] text-slate-500">© 2026 ${data.businessName}. Hak Cipta Dilindungi.</p>
-            <p class="text-[0.65rem] text-slate-600">Dibuat menggunakan Websitetermaju AI Website Builder</p>
+            <p class="text-[0.65rem] text-slate-600">Dibuat menggunakan Websitetermaju</p>
           </div>
         </footer>
 
