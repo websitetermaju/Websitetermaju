@@ -11,11 +11,11 @@ npm run build      # Build ke ./dist/
 npm run preview    # Preview build lokal
 ```
 
-## Deploy via cPanel Git Version Control
+## Deploy produksi via Domainesia Git Deploy
 
 ### Penting: Build Dulu Sebelum Push
 
-cPanel tidak bisa menjalankan `npm run build`. Folder `dist/` harus di-commit ke repo.
+Hosting tidak menjalankan `npm run build`. Folder `dist/` wajib di-commit ke repo.
 
 **Alur kerja setiap kali ada perubahan:**
 
@@ -23,24 +23,25 @@ cPanel tidak bisa menjalankan `npm run build`. Folder `dist/` harus di-commit ke
 2. Jalankan `npm run build`
 3. Commit semua perubahan (termasuk `dist/`)
 4. Push ke GitHub
-5. Di cPanel → Git Version Control → Pull or Deploy → Update from Remote → Deploy HEAD Commit
+5. Push branch `main` ke GitHub
+6. Jalankan deployment `domainesia-hosting` untuk domain `webtermajuumkm.com`
+7. Verifikasi `https://webtermajuumkm.com/` dan halaman portofolio
 
-### Setup Pertama Kali
+### Mapping Produksi Aktif
 
-1. Login ke cPanel
-2. Buka **Git Version Control**
-3. Klik **Create**
-4. Masukkan URL repo: `git@github.com:websitetermaju/Websitetermaju.git`
-5. Jika autentikasi gagal:
-   - Di cPanel, ambil SSH public key
-   - Masuk ke GitHub repo → **Settings** → **Deploy keys** → **Add Deploy Key**
-   - Paste SSH key. **JANGAN** centang "Allow write access"
-6. Edit file `.cpanel.yml` — ganti `USERNAME` dengan username cPanel kamu
-7. Push dan deploy
+| Item | Nilai |
+|---|---|
+| Domain | `webtermajuumkm.com` |
+| Repo | `https://github.com/websitetermaju/Websitetermaju.git` |
+| Branch | `main` |
+| Docroot | `/home/webterma/public_html` |
+| Output publik | `dist/` melalui `.htaccess` |
+| Build | Lokal sebelum push |
+| Health check | `https://webtermajuumkm.com/` |
 
 ### Konfigurasi Deploy
 
-File `.cpanel.yml` mengatur file apa yang dicopy ke `public_html`:
+File `.cpanel.yml` tetap tersedia untuk kompatibilitas cPanel manual. Deploy utama saat ini memakai Git Deploy Domainesia yang melakukan fetch dan reset ke branch `main`. `.htaccess` menyajikan build dari folder `dist/`.
 
 ```yaml
 ---
