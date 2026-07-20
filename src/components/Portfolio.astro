@@ -1,11 +1,11 @@
 ---
 const projects = [
-  { title: "Kopi Senja", category: "Landing Page", color: "from-amber-400 to-orange-500", slug: "kopi-senja" },
-  { title: "Bengkel Mas Yono", category: "Company Profile", color: "from-blue-400 to-indigo-500", slug: "bengkel-mas-yono" },
-  { title: "Batik Larasati", category: "Toko Online", color: "from-rose-400 to-pink-500", slug: "batik-larasati" },
-  { title: "Katering Bu Rina", category: "Landing Page", color: "from-emerald-400 to-teal-500", slug: "katering-bu-rina" },
-  { title: "Studio Kreatif", category: "Company Profile", color: "from-violet-400 to-purple-500", slug: "studio-kreatif" },
-  { title: "Apotek Sehat", category: "Custom Web App", color: "from-cyan-400 to-blue-500", slug: "apotek-sehat" },
+  { title: "Kopi Senja", category: "Landing Page", slug: "kopi-senja" },
+  { title: "Bengkel Mas Yono", category: "Company Profile", slug: "bengkel-mas-yono" },
+  { title: "Batik Larasati", category: "Toko Online", slug: "batik-larasati" },
+  { title: "Katering Bu Rina", category: "Landing Page", slug: "katering-bu-rina" },
+  { title: "Studio Kreatif", category: "Company Profile", slug: "studio-kreatif" },
+  { title: "Apotek Sehat", category: "Custom Web App", slug: "apotek-sehat" },
 ];
 ---
 
@@ -14,27 +14,25 @@ const projects = [
     <div class="text-center mb-16">
       <span class="reveal inline-block text-primary text-sm font-semibold tracking-wider uppercase mb-3">Portfolio</span>
       <h2 class="reveal text-3xl sm:text-4xl font-extrabold tracking-tight">
-        Beberapa karya kami
+        Contoh tampilan website
       </h2>
       <p class="reveal text-muted mt-4 max-w-2xl mx-auto text-lg">
-        Setiap proyek dikerjakan dengan perhatian penuh pada detail dan kebutuhan klien.
+        Enam demo untuk melihat arah desain, struktur halaman, dan jenis website yang tersedia. Bukan proyek klien.
       </p>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {projects.map((p, i) => (
         <a href={`/portfolio/${p.slug}`} target="_blank" rel="noopener" class="reveal group no-underline" style={`transition-delay: ${(i % 3) * 100}ms`}>
-          <div class="relative overflow-hidden rounded-xl border border-gray-100 bg-white transition-all duration-300 group-hover:border-primary/20 group-hover:shadow-lg group-hover:shadow-primary/5">
-            <div class={`relative aspect-[16/10] bg-gradient-to-br ${p.color} flex items-center justify-center`}>
-              <div class="text-white/90 text-center">
-                <svg class="w-12 h-12 mx-auto mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                <span class="text-sm font-medium opacity-70">Preview</span>
-              </div>
-              <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors">
-                <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-dark text-sm font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5">
-                  Lihat demo
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                </span>
+          <div class="relative overflow-hidden rounded-xl border border-gray-200 bg-[#f8f6f0] transition-colors duration-200 group-hover:border-primary">
+            <div class="aspect-[16/10] p-6 flex flex-col justify-between border-b border-gray-200">
+              <span class="text-xs uppercase tracking-[0.18em] text-muted">Demo 0{i + 1}</span>
+              <div>
+                <div class="text-2xl font-extrabold text-dark leading-tight">{p.title}</div>
+                <div class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                  Buka demo
+                  <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </div>
               </div>
             </div>
             <div class="p-5">
