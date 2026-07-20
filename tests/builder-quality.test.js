@@ -299,6 +299,89 @@ describe('AI Website Builder — Production Quality Audit', () => {
       assert.ok(!src.includes('🚀'), 'Builder must not contain rocket emoji');
     });
   });
+
+  describe('9. Visual Alignment with Main Website (Websitetermaju brand)', () => {
+    it('should use light/neutral background (bg-light/white) instead of dark navy in builder workspace', () => {
+      // The main layout container should not use bg-slate-950 or bg-slate-900 dark colors
+      // Check the <main> tag that wraps the workspace grid
+      const mainTag = src.match(/<main[^>]*class="[^"]*"[^>]*>/);
+      assert.ok(mainTag, 'Main tag with class must exist');
+      assert.ok(!mainTag[0].includes('bg-slate-950'),
+        'Main workspace area should NOT use bg-slate-950 (dark navy) - must match main website light bg');
+      assert.ok(!mainTag[0].includes('bg-slate-900'),
+        'Main workspace area should NOT use bg-slate-900 (dark) - must match main website light bg');
+    });
+
+    it('should use brand green primary color (#0E7C66) consistently for buttons and CTAs', () => {
+      const script = getScriptContent();
+      // Primary CTAs should use bg-primary not bg-slate-800
+      const btnGenerate = src.match(/<button[^>]*id="btn-generate"[^>]*>/);
+      assert.ok(btnGenerate, 'Generate button must exist');
+      assert.ok(btnGenerate[0].includes('bg-primary'),
+        'Primary generate button must use bg-primary, not bg-slate classes');
+      assert.ok(!btnGenerate[0].includes('bg-slate'),
+        'Primary button should not use slate background - use brand green bg-primary');
+      // Download button should use bg-primary
+      const btnDownload = src.match(/<button[^>]*id="btn-download-html"[^>]*>/);
+      assert.ok(btnDownload, 'Download button must exist');
+      assert.ok(btnDownload[0].includes('bg-primary'),
+        'Download button must use bg-primary brand green');
+    });
+
+    it('should use Plus Jakarta Sans font classes or inherit from Layout', () => {
+      const fontCount = countMatches(/Plus\+Jakarta\+Sans|Plus Jakarta Sans/g);
+      assert.ok(fontCount >= 1, 'Builder should reference Plus Jakarta Sans font');
+    });
+
+    it('should NOT have bg-slate-* dark backgrounds on left panel section', () => {
+      const leftSection = src.match(/<section[^>]*class="[^"]*lg:col-span-5[^"]*"[^>]*>/);
+      if (leftSection) {
+        assert.ok(!leftSection[0].includes('bg-slate'),
+          'Left panel section should not use bg-slate-* dark backgrounds');
+      }
+    });
+
+    it('should use consistent border colors (border-gray-* or border-light) matching main website', () => {
+      const headerEl = src.match(/<header[^>]*class="[^"]*"[^>]*>/);
+      assert.ok(headerEl, 'Header element must exist');
+      assert.ok(!headerEl[0].includes('border-slate'),
+        'Builder header should not use border-slate-* - should use border-gray-* or border-light');
+    });
+
+    it('should NOT have bg-slate-900 or bg-slate-950 on the right panel preview area', () => {
+      const rightSection = src.match(/<section[^>]*class="[^"]*lg:col-span-7[^"]*"[^>]*>/);
+      if (rightSection) {
+        assert.ok(!rightSection[0].includes('bg-slate'),
+          'Right preview panel should not use bg-slate-* dark backgrounds');
+      }
+    });
+
+    it('should use consistent rounded-lg (not rounded-xl with dark borders) for input fields', () => {
+      // Check input fields use rounded-lg consistent with main website
+      const inputs = src.match(/<input[^>]*rounded-[a-z]+[^>]*>/g) || [];
+      const roundedXlCount = inputs.filter(i => i.includes('rounded-xl')).length;
+      const roundedLgCount = inputs.filter(i => i.includes('rounded-lg')).length;
+      // There should be no rounded-xl on inputs (use rounded-lg which is consistent with main website)
+      assert.ok(roundedXlCount === 0,
+        `Input fields should not use rounded-xl (inconsistent with main website), found ${roundedXlCount}`);
+      assert.ok(roundedLgCount >= 3,
+        `Input fields should use rounded-lg (consistent with main website), found ${roundedLgCount}`);
+    });
+
+    it('should NOT have chromatic / offset text effects in headline areas', () => {
+      const script = getScriptContent();
+      const start = script.indexOf('function renderHTML');
+      const end = script.indexOf('function updatePreview', start);
+      assert.ok(start >= 0, 'renderHTML function must exist');
+      const renderFn = script.slice(start, end >= 0 ? end : undefined);
+      assert.ok(!renderFn.includes('text-shadow'),
+        'renderHTML should not contain text-shadow (chromatic effect)');
+      assert.ok(!renderFn.includes('chromatic'),
+        'renderHTML should not contain chromatic keyword');
+      assert.ok(!renderFn.includes('custom-scribble'),
+        'renderHTML headline should not use offset scribble decoration');
+    });
+  });
 });
 
 // ---- Utility functions ----
